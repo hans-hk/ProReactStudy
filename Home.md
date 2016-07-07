@@ -1,6 +1,6 @@
 Welcome to the ProReactStudy wiki!
 
-[TOC]
+[[TOC]]
 
 ## ProReactStudy
 * 1장  
