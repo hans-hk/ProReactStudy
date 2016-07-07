@@ -14,7 +14,7 @@ Welcome to the ProReactStudy wiki!
 * 9장
 
 ## Submission
-* es6
+* 환경설정하기
 
 ## 문서 번역
 
