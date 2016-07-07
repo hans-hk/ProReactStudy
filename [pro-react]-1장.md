@@ -6,7 +6,8 @@
 [[환경설정하기]]  
 code [code](https://github.com/otwm/ProReactStudy/tree/master/kanban)  
 
-[es6 import, export](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/export)  
+[es6 import](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/import)  
+[es6 export](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/export)  
   
 컴퍼넌트, 리엑트 엘리먼트,...  
   
