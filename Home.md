@@ -1,8 +1,8 @@
-Welcome to the ProReactStudy wiki!
+Welcome to the Pro React Study wiki!
 
 [TOC]
 
-## ProReactStudy
+## Pro React Study
 * [[[pro react] 1장]]
 * 2장  
 * 3장  
@@ -14,7 +14,7 @@ Welcome to the ProReactStudy wiki!
 * 9장
 
 ## Submission
-* 환경설정하기
+* [[환경설정하기]]
 * [[es6]]
 
 
