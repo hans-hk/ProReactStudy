@@ -15,6 +15,7 @@ Welcome to the ProReactStudy wiki!
 
 ## Submission
 * 환경설정하기
+* [[es6]]
 
 
 ## 문서 번역
