@@ -31,7 +31,7 @@ jsx, 트랜스 파일러, 웹팩 , class
 [es6 import](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/import)  
 [es6 export](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/export)  
   
-
+## 기타 
 컴퍼넌트, 리엑트 엘리먼트,...  
 
 ### es6 생성자  
@@ -52,5 +52,7 @@ function ReactComponent(props, context, updater) {
 [Reusable Components es6 classes](https://facebook.github.io/react/docs/reusable-components.html#es6-classes)  
 [React Life Cycle](https://github.com/studye/react/wiki/React-Life-Cycle)  
   
+### es6 sourcemap debug
+[[es6 sourcemap debug]]
   
 
