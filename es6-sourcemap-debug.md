@@ -34,3 +34,5 @@ module: {
 },
 devtool: '#inline-source-map'
 ```
+  
+[debugging-with-webpack-es6-and-babel](http://stackoverflow.com/questions/32211649/debugging-with-webpack-es6-and-babel)
