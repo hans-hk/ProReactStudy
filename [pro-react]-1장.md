@@ -1,6 +1,7 @@
 프로리엑트 책 관련 코드는 아래의 링크에서 찾아 볼수 있습니다.
 [프로리엑트](https://github.com/pro-react/)  
 
+## 리엑트가 이야기 하는 리엑트
 ### JUST THE UI
 
 React.js는 UI 컴포넌트를 만들기 위한 라이브러리입니다. 컴포넌트 지향 프레임워크는 여러 가지가 있지만 React.js는 정말 UI 컴포넌트만 지원합니다. 비록 지원하는 범위는 작지만, 애플리케이션을 만드는 방법을 크게 바꿀 수 있다는 점이 재미있습니다. 또한, 이해 비용이 적어 도입하기 쉬우며 Backbone.js의 뷰 부분을 React.js로 구현하거나 Angular.js의 directives를 React.js를 사용해 구현하는 등 여러 환경과 조합해 사용할 수 있습니다.
@@ -12,8 +13,9 @@ React.js는 자바스크립트 내에 DOM Tree와 같은 구조체를 VIRTUAL DO
 ### DATA FLOW
 
 React.js는 단방향 데이터 흐름을 지향합니다. 따라서 Angular.js의 양방향 데이터 바인딩을 사용할 때처럼 작성할 코드의 양이 확연히 줄거나 하지는 않습니다. 그렇지만, 애플리케이션의 데이터를 관리하는 모델 컴포넌트가 있고 그 데이터를 UI 컴포넌트에 전달하는 단순한 데이터 흐름으로 이해하고 관리하기 쉬운 애플리케이션을 만들 수 있습니다.
-
+(현재는 내용이 조금 바꾸여 있네요)
 [JUST THE UI,VIRTUAL DOM,DATA FLOW](http://blog.coderifleman.com/post/122232296024/reactjs%EB%A5%BC-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8B%A41)
+
 
 [[환경설정하기]]  
 code [code](https://github.com/otwm/ProReactStudy/tree/master/kanban)  
