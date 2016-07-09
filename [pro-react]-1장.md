@@ -6,6 +6,8 @@
 [[환경설정하기]]  
 code [code](https://github.com/otwm/ProReactStudy/tree/master/kanban)  
 
+[map](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map)  
+[filter](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)  
 [es6 import](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/import)  
 [es6 export](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/export)  
   
