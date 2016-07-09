@@ -31,6 +31,7 @@ jsx, 트랜스 파일러, 웹팩 , class
 [es6 import](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/import)  
 [es6 export](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/export)  
 [es6 arrow function](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)  
+[[[es6 1장]문법 맛보기]]
 ## 기타 
 
 ### es6 생성자  
