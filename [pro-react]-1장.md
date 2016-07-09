@@ -12,8 +12,9 @@ React.js는 자바스크립트 내에 DOM Tree와 같은 구조체를 VIRTUAL DO
 
 ### DATA FLOW
 
-React.js는 단방향 데이터 흐름을 지향합니다. 따라서 Angular.js의 양방향 데이터 바인딩을 사용할 때처럼 작성할 코드의 양이 확연히 줄거나 하지는 않습니다. 그렇지만, 애플리케이션의 데이터를 관리하는 모델 컴포넌트가 있고 그 데이터를 UI 컴포넌트에 전달하는 단순한 데이터 흐름으로 이해하고 관리하기 쉬운 애플리케이션을 만들 수 있습니다.
-(현재는 내용이 조금 바꾸여 있네요)
+React.js는 단방향 데이터 흐름을 지향합니다. 따라서 Angular.js의 양방향 데이터 바인딩을 사용할 때처럼 작성할 코드의 양이 확연히 줄거나 하지는 않습니다. 그렇지만, 애플리케이션의 데이터를 관리하는 모델 컴포넌트가 있고 그 데이터를 UI 컴포넌트에 전달하는 단순한 데이터 흐름으로 이해하고 관리하기 쉬운 애플리케이션을 만들 수 있습니다.  
+([현재는 내용이 조금 바꾸여 있네요](https://facebook.github.io/react/index.html))  
+  
 [JUST THE UI,VIRTUAL DOM,DATA FLOW](http://blog.coderifleman.com/post/122232296024/reactjs%EB%A5%BC-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8B%A41)
 
 
