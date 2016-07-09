@@ -21,6 +21,7 @@ React.js는 단방향 데이터 흐름을 지향합니다. 따라서 Angular.js�
 [[환경설정하기]]  
 
 ## code
+![kanban](https://cloud.githubusercontent.com/assets/877691/13779162/fdc97364-eafc-11e5-8ebd-b778c6165294.png)
 code [code](https://github.com/otwm/ProReactStudy/tree/master/kanban)   
 jsx, 트랜스 파일러, 웹팩 , class   
   
