@@ -17,7 +17,7 @@ Welcome to the Pro React Study wiki!
 * [[환경설정하기]]
 * [[es6]]
 * webpack
-
+* redux
 
 ## 문서 번역
 
