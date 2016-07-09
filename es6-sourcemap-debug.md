@@ -1,0 +1,14 @@
+```.babelrc
+{
+  "presets": [
+    "es2015-webpack"
+    ,"react"
+  ],
+  "plugins": [
+    "transform-runtime",
+    ["transform-es2015-modules-commonjs-simple", {
+      "noMangle": true
+    }]
+  ]
+}
+```
