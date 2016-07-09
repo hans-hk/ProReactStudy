@@ -14,6 +14,19 @@ code [code](https://github.com/otwm/ProReactStudy/tree/master/kanban)
 컴퍼넌트, 리엑트 엘리먼트,...  
 
 리엑트 컴퍼넌트에서 super 사용시 기본적으로 인자는 props, context, updater를 제공 받는다.(리엑트 컴퍼넌트 소스 및 아래 링크  참조)  
+```javascript
+/**
+ * Base class helpers for the updating state of a component.
+ */
+function ReactComponent(props, context, updater) {
+  this.props = props;
+  this.context = context;
+  this.refs = emptyObject;
+  // We initialize the default updater but the real one gets injected by the
+  // renderer.
+  this.updater = updater || ReactNoopUpdateQueue;
+}
+```
 [Reusable Components es6 classes](https://facebook.github.io/react/docs/reusable-components.html#es6-classes)  
 [React Life Cycle](https://github.com/studye/react/wiki/React-Life-Cycle)  
   
