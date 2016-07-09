@@ -32,7 +32,6 @@ jsx, 트랜스 파일러, 웹팩 , class
 [es6 export](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/export)  
   
 ## 기타 
-컴퍼넌트, 리엑트 엘리먼트,...  
 
 ### es6 생성자  
 리엑트 컴퍼넌트에서 super 사용시 기본적으로 인자는 props, context, updater를 제공 받는다.(리엑트 컴퍼넌트 소스 및 아래 링크  참조)  
