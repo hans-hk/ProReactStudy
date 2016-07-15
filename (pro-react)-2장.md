@@ -92,7 +92,7 @@ render(){
 ### 동적 HTML 렌더링
 
 **리액트는 [XSS](http://www.kisa.or.kr/uploadfile/201312/201312161355109566.pdf) 공격 방지 기능이 기본적으로 내장되어 있다.**  
-<img src='https://pbs.twimg.com/media/CYfJeWsUEAAeNz8.jpg' width='340'/>  
+<img src='https://pbs.twimg.com/media/CYfJeWsUEAAeNz8.jpg' width='250'/>  
 ==>> 그래서 노드 동적생성하는 것은 그다지 추천하지 않는다.  
 ==>> xss 보호기능을 끄려면 dangerouslySetInnerHTML을 이용한다.  
   
