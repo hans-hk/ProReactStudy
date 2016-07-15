@@ -8,9 +8,9 @@ cf)
 [넥스트리 메모리 누수](http://www.nextree.co.kr/p7363/)  
 
 기반지식)  
-[이벤트 캡쳐, 버블링(코드 포함)](http://www.java2s.com/Book/JavaScript/DOM/Event_Flow_capture_target_and_bubbling.htm)
-[이벤트 캡쳐, 버블링(한글)](http://aroundck.tistory.com/1807)
-[w3c event 정의](https://www.w3.org/TR/DOM-Level-3-Events/)
+[이벤트 캡쳐, 버블링(코드 포함)](http://www.java2s.com/Book/JavaScript/DOM/Event_Flow_capture_target_and_bubbling.htm)  
+[이벤트 캡쳐, 버블링(한글)](http://aroundck.tistory.com/1807)  
+[w3c event 정의](https://www.w3.org/TR/DOM-Level-3-Events/)  
   
 JSX는 실제 html의 이벤트 API는 이용하지 않는다. 또한 반드시 **낙타** 표기법을 이용하니 알아두자.
 ##JSX 자세히 살펴보기
