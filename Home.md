@@ -3,7 +3,7 @@ Welcome to the Pro React Study wiki!
 [TOC]
 
 ## Pro React Study
-* [[[pro react] 1장]]
+* [[(pro react) 1장]]
 * 2장  
 * 3장  
 * 4장  
