@@ -97,6 +97,7 @@ render(){
 ==>> xss 보호기능을 끄려면 dangerouslySetInnerHTML을 이요한다.
 
 ###JSX를 배제하고 리액트 이용
+[JSX 배제](https://facebook.github.io/react/docs/glossary-ko-KR.html)  
 그래도 된다.(왜?? 뭣하러??)
 
 ```javascript
