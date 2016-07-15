@@ -222,8 +222,9 @@ virtual dom에서 반복되는 요소들을 다룰 시 성능을 높이기 위�
 예제
 ##칸반 앱: 카드가 열려있는지 여부 확인
 실습
-[색상 추가](https://github.com/otwm/ProReactStudy/commit/95f1d23f4ba9e5a3c9db921d6230dff35781c7ce)
-[toggle method extract!](https://github.com/otwm/ProReactStudy/commit/03710fa8b58306c72a008677dcce6472f0cd3d1d)
+[색상 추가](https://github.com/otwm/ProReactStudy/commit/95f1d23f4ba9e5a3c9db921d6230dff35781c7ce)  
+[toggle method extract!](https://github.com/otwm/ProReactStudy/commit/03710fa8b58306c72a008677dcce6472f0cd3d1d)  
+  
 ##정리
 
 
