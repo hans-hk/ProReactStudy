@@ -4,7 +4,9 @@
 실제로 하나의 이벤트가 dom에 연결 되는 것이며, 핸들러는 매핑 되는 듯 하다.  
 
 실제로 살펴본 결과 [공식문서](https://facebook.github.io/react/docs/events-ko-KR.html)에서 설명하는 것처럼 Synthetic 객체가 생성되고, 이는 리엑트 내의 dispatchEvent 메서드를 통해서,PooledClass를 통해 풀링되어 결국에 SyntheticEvent로 들어오는 것 까지는 확인이 되었다.(여기까지만 하자. 더하면 다칠듯...;;;)  
-<img src="https://github.com/otwm/ProReactStudy/blob/master/chapter02/file/react_event_dispatch.png" width="300"/>
+<img src="https://github.com/otwm/ProReactStudy/blob/master/chapter02/file/react_event_dispatch.png" width="250"/>
+<img src="https://github.com/otwm/ProReactStudy/blob/master/chapter02/file/react_event_pooled.png" width="250"/>
+<img src="https://github.com/otwm/ProReactStudy/blob/master/chapter02/file/react_event_syntheticEvent.png" width="250"/>
 
 cf)  
 [(공식문서)이벤트 시스템](https://facebook.github.io/react/docs/events-ko-KR.html)  
