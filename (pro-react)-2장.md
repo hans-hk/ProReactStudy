@@ -91,11 +91,11 @@ render(){
 
 ### 동적 HTML 렌더링
 
-**리액트는 [XSS](http://www.kisa.or.kr/uploadfile/201312/201312161355109566.pdf) 공격 방지 기능이 기본적으로 내장되어 있다.**
-![오 이런!!! 지자스](https://pbs.twimg.com/media/CYfJeWsUEAAeNz8.jpg)
-==>> 그래서 노드 동적생성하는 것은 그다지 추천하지 않는다.
-==>> xss 보호기능을 끄려면 dangerouslySetInnerHTML을 이요한다.
-
+**리액트는 [XSS](http://www.kisa.or.kr/uploadfile/201312/201312161355109566.pdf) 공격 방지 기능이 기본적으로 내장되어 있다.**  
+<img src='https://pbs.twimg.com/media/CYfJeWsUEAAeNz8.jpg' width='340'/>  
+==>> 그래서 노드 동적생성하는 것은 그다지 추천하지 않는다.  
+==>> xss 보호기능을 끄려면 dangerouslySetInnerHTML을 이용한다.  
+  
 ###JSX를 배제하고 리액트 이용
 [JSX 배제](https://facebook.github.io/react/docs/glossary-ko-KR.html)  
 그래도 된다.(왜?? 뭣하러??)
