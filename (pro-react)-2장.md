@@ -1,11 +1,11 @@
 #Dom 추상화의 내부
 
 ##리액트의 이벤트
-실제로 하나의 이벤트가 dom에 연결 되는 것이며, 핸들러는 매핑 되는 듯 하다.
-cf)
-[MDN 메모리 누수](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management)
-[넥스트리 메모리 누수](http://www.nextree.co.kr/p7363/)
-
+실제로 하나의 이벤트가 dom에 연결 되는 것이며, 핸들러는 매핑 되는 듯 하다.  
+cf)  
+[MDN 메모리 누수](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management)  
+[넥스트리 메모리 누수](http://www.nextree.co.kr/p7363/)  
+  
 JSX는 실제 html의 이벤트 API는 이용하지 않는다. 또한 반드시 **낙타** 표기법을 이용하니 알아두자.
 ##JSX 자세히 살펴보기
 JSX는 자바스크립트 코드 안에 선언적인 XML스타일의 구문을 작성할 수 있게 해주는 리액트의 선택적 자바스크립트 구분확장이다.
