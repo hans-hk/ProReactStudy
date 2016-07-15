@@ -12,6 +12,9 @@ cf)
 [이벤트 캡쳐, 버블링(한글)](http://aroundck.tistory.com/1807)  
 [w3c event 정의](https://www.w3.org/TR/DOM-Level-3-Events/)  
   
+정말 안봐도 되는 것들)(이런 건 왜 여기다...)  
+[proxy](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Proxy)  
+  
 JSX는 실제 html의 이벤트 API는 이용하지 않는다. 또한 반드시 **낙타** 표기법을 이용하니 알아두자.
 ##JSX 자세히 살펴보기
 JSX는 자바스크립트 코드 안에 선언적인 XML스타일의 구문을 작성할 수 있게 해주는 리액트의 선택적 자바스크립트 구분확장이다.
