@@ -76,7 +76,7 @@ render(){
         className = "abc";
     }
     return (
-        <div className={className}>Hello1</h1>
+        <div className={className}>Hello1</div>
     )
 }
 //O
