@@ -114,8 +114,53 @@ R.p({},
 
 
 ### 요소 팩토리
-예제
+```javascript
+//간단한 커멘트 폼
+React.DOM.form({className:"commentForm"},
+   React.DOM.input({type:"text",placeholder:"Name"}),
+   React.DOM.input({type:"text",placeholder:"Comment"}),
+   React.DOM.input({type:"submit",value:"Post"})
+)
 
+//JSX
+<form className='commentForm'>
+    <input type='text' placeholder='Name'/>
+    <input type='text' placeholder='Comment'/>
+    <input type='submit' value='Post'/>
+</form>
+
+//좀 더...
+import React, {Component} from 'react';
+import {render} from 'react-dom';
+
+let {
+   form,
+   input
+} = React.DOM;
+
+class CommentForm extends Component {
+   render(){
+       return form({className:"commentForm"},
+            input({type:'text',placeholder:'Name'}),
+            input({type:'text',placeholder:'Comment'}),
+            input({type:'submit',placeholder:'Post'})
+       )
+   }
+}
+
+/**
+ * 딱히 어떤 스타일이 더 나은지에 대해서는 생각해 볼 필요가 있지만,
+ * 현재로서, 일반적인 경우는 기본적인 JSX 만으로 충분해 보인다.(지극히 사견)
+ */
+```
+
+### 커스텀 팩토리 
+```javascript
+let factory = React.createFactory(ComponentClass);
+let root = factory({custom:'prop'});
+render(root,document.getElementById('test'));
+```
+  
 ### 인라인 스타일링
 예제
 참조)
