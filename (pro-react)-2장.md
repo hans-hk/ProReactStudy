@@ -3,6 +3,7 @@
 ##리액트의 이벤트
 실제로 하나의 이벤트가 dom에 연결 되는 것이며, 핸들러는 매핑 되는 듯 하다.  
 cf)  
+[(공식문서)이벤트 시스템](https://facebook.github.io/react/docs/events-ko-KR.html)  
 [MDN 메모리 누수](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management)  
 [넥스트리 메모리 누수](http://www.nextree.co.kr/p7363/)  
   
