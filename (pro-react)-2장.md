@@ -210,7 +210,7 @@ var LiveText = React.createClass({
 * [state of virtual dom](https://blog.jscrambler.com/state-virtual-dom/)
 * [Learning Virtual DOM and React Diff Algorithm](http://www.oyecode.com/2015/09/reactjs-learning-virtual-dom-and-react.html)
 * [virtual dom의 좋은 점](http://blog.coderifleman.com/post/122771353444/reactjs%EB%A5%BC-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8B%A44)
-
+* [Matt-Esch/virtual-dom](https://github.com/Matt-Esch/virtual-dom)
 ### 키
 virtual dom에서 반복되는 요소들을 다룰 시 성능을 높이기 위해 key 속성을 이용하는 것이 좋다.
 
