@@ -4,8 +4,8 @@ Welcome to the Pro React Study wiki!
 
 ## Pro React Study
 * [[(pro react) 1장]]
-* 2장  
-* 3장  
+* [[(pro react) 2장]]
+* [[(pro react) 3장]]
 * 4장  
 * 5장  
 * 6장
