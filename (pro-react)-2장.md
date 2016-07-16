@@ -10,6 +10,7 @@
 
 cf)  
 [(공식문서)이벤트 시스템](https://facebook.github.io/react/docs/events-ko-KR.html)  
+[(공식문서)상호 작용 및 동적 UI](https://facebook.github.io/react/docs/interactivity-and-dynamic-uis-ko-KR.html)
 [MDN 메모리 누수](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management)  
 [넥스트리 메모리 누수](http://www.nextree.co.kr/p7363/)  
 
