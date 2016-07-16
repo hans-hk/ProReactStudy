@@ -50,10 +50,12 @@ render(<Greeter/>, document.getElementById('root'));
 실습  
   
 ### 커스텀 propTypes 유효성 검사기
+[(공식문서)재사용 가능한 컴포넌트](https://facebook.github.io/react/docs/reusable-components-ko-KR.html)  
+  
+#### 칸반 앱 : 커스텀 propTypes 유효성 검사기 정의
 실습  
 [es6  문자열 보간](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals)  
   
-#### 칸반 앱 : 커스텀 propTypes 유효성 검사기 정의
 ## 컴퍼넌트 조합 전략과 모범 사례
 ### 상태 저장 컴포넌트와 순수 컴포넌트
 ### 어떤 컴포넌트가 상태 저장이어야 할까?
