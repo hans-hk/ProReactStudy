@@ -204,15 +204,16 @@ var LiveText = React.createClass({
 ````
 
 ### 가상 DOM의 작동 방식
-우리가 이해해야 하는 것들   
+**우리가 이해해야 하는 것들**   
 * DOM 트리의 노드를 비교할 때 노드가 다른 유형일 경우(예:div를 span으로 변경) 리엑트는 이를 서로 다른 하위 트리로 취급해 첫 번째 항목을 버리고 두번째 항목을 생성/삽입한다.
 * 커스텀 컴포넌트에도 동일한 논리를 적용한다. 컴포넌트가 동일한 유형이 아닌 경우 리액트는 컴포넌트가 렌더링하는 내용을 비교조차 하지 않고 DOM에서 첫번째 항목을 제거한 후 두번째 항목을 삽입한다.
 * 노드가 같은 유형인 경우 리액트는 둘 중 한 가지 방법으로 이를 처리한다.
  - DOM요소의 경우(예: <div id='before'/>를 <div id='after'/>로 변경) 리액트는 특성과 스타일만 변경한다.(요소트리는 대체하지 않음)
- - 커스텀 컴포넌트의 경우(예: <Contact details={false} />를 <Contact details={true}/>로 변경) 리엑트는 컴퍼넌트를 대체하지 않고 새로운 속성을 현재 마운팅된 컴포넌트로 전달한다. 그러면 이 컴포넌트에서 새로 render()가 트리거 되고 새로운 결과를 이용한 프로세스가 다시 시작된다.
-
+ - 커스텀 컴포넌트의 경우(예: <Contact details={false} />를 <Contact details={true}/>로 변경) 리엑트는 컴퍼넌트를 대체하지 않고 새로운 속성을 현재 마운팅된 컴포넌트로 전달한다. 그러면 이 컴포넌트에서 새로 render()가 트리거 되고 새로운 결과를 이용한 프로세스가 다시 시작된다.   
+   
 > 애플리케이션 개발자가 VIRTUAL DOM을 직접 신경 쓰는 경우는 key 속성 지정과 성능 향상의 목적으로 shouldComponentUpdate()를 구현할 때입니다.  
-
+    
+참조)   
 * [react 공식 사이트 virtual dom](https://facebook.github.io/react/docs/glossary-ko-KR.html)
 * [virtual dom과 dom의 차이](http://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/)
 * [state of virtual dom](https://blog.jscrambler.com/state-virtual-dom/)
@@ -221,8 +222,9 @@ var LiveText = React.createClass({
 * [Matt-Esch/virtual-dom](https://github.com/Matt-Esch/virtual-dom)  
   
 ### 키
-virtual dom에서 반복되는 요소들을 다룰 시 성능을 높이기 위해 key 속성을 이용하는 것이 좋다.
-
+virtual dom에서 반복되는 요소들을 다룰 시 성능을 높이기 위해 key 속성을 이용하는 것이 좋다.  
+책을 참조할 것!  
+   
 ### ref
 컴퍼넌트 내부에 하위 노드나 컴퍼넌트에 접근하고 싶을 때 사용할 수 있다.
 그러나 대부분의 경우 실제 DOM을 조작하는 것보다 리액트 모델 안에서 더 깔끔하게 코드를 구성할
