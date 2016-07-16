@@ -241,10 +241,10 @@ virtual dom에서 반복되는 요소들을 다룰 시 성능을 높이기 위�
 
 
 ## 기타
-**[zapier react tutorial](https://zapier.com/engineering/react-js-tutorial-guide-gotchas/)**
-[js oop](https://github.com/dotNetTree/I-Konow-JS/blob/master/oop-in-js/01_java_to_js.md)
-[virtual dom에 대한 이해](https://gist.github.com/sebmarkbage/fcb1b6ab493b0c77d589#file-react-terminology-md)
-
+**[zapier react tutorial](https://zapier.com/engineering/react-js-tutorial-guide-gotchas/)**  
+[js oop](https://github.com/dotNetTree/I-Konow-JS/blob/master/oop-in-js/01_java_to_js.md)  
+[virtual dom에 대한 이해](https://gist.github.com/sebmarkbage/fcb1b6ab493b0c77d589#file-react-terminology-md)  
+  
 ## 남은 과제들
 * [es6, react.Component]구체적으로 생성자 안에 super 하는 일은 무엇인가?
 
