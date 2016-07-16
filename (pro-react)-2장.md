@@ -21,7 +21,8 @@ cf)
 정말 안봐도 되는 것들)(이런 건 왜 여기다...)  
 [proxy](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Proxy)  
   
-JSX는 실제 html의 이벤트 API는 이용하지 않는다. 또한 반드시 **낙타** 표기법을 이용하니 알아두자.
+JSX는 실제 html의 이벤트 API는 이용하지 않는다. 또한 반드시 **낙타** 표기법을 이용하니 알아두자.  
+
 ##JSX 자세히 살펴보기
 JSX는 자바스크립트 코드 안에 선언적인 XML스타일의 구문을 작성할 수 있게 해주는 리액트의 선택적 자바스크립트 구분확장이다.
 html과 유사하지만, 다른 XML태그 집합을 사용하는 것도 있다.(네이티브 등)
@@ -205,7 +206,7 @@ var LiveText = React.createClass({
 ### 가상 DOM의 작동 방식
 > 애플리케이션 개발자가 VIRTUAL DOM을 직접 신경 쓰는 경우는 key 속성 지정과 성능 향상의 목적으로 shouldComponentUpdate()를 구현할 때입니다.  
 
-* [react 공식 사이트 virtual dom](https://facebook.github.io/react/docs/glossary.html)
+* [react 공식 사이트 virtual dom](https://facebook.github.io/react/docs/glossary-ko-KR.html)
 * [virtual dom과 dom의 차이](http://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/)
 * [state of virtual dom](https://blog.jscrambler.com/state-virtual-dom/)
 * [Learning Virtual DOM and React Diff Algorithm](http://www.oyecode.com/2015/09/reactjs-learning-virtual-dom-and-react.html)
