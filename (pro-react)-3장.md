@@ -1,8 +1,56 @@
 ## 속성 유효성 검사
+```javascript
+import React, {Component, PropTypes} from 'react';
+import {render} from 'react-dom';
+
+class Greeter extends Component {
+    render() {
+        return (
+            <h1>{this.props.salutation}</h1>
+        )
+    }
+}
+
+Greeter.propTypes = {
+    salutation: PropTypes.string.isRequired
+};
+
+// render(<Greeter salutation="Hello World"/>, document.getElementById('root'));
+render(<Greeter/>, document.getElementById('root'));
+```
 ### 속성 기본값
+```javascript
+import React, {Component, PropTypes} from 'react';
+import {render} from 'react-dom';
+
+class Greeter extends Component {
+    render() {
+        return (
+            <h1>{this.props.salutation}</h1>
+        )
+    }
+}
+
+Greeter.propTypes = {
+    salutation: PropTypes.string
+};
+
+Greeter.defaultProps = {
+    salutation: "Hello World"
+};
+
+// render(<Greeter salutation="Hello World"/>, document.getElementById('root'));
+render(<Greeter/>, document.getElementById('root'));
+```
 ### 기본 제공되는 propTypes 유효성 검사기
-### 칸반 앱: 속성 형식 정의
+책 참조  
+[(공식문서)재사용 가능한 컴포넌트](https://facebook.github.io/react/docs/reusable-components-ko-KR.html)  
+  
+### 칸반 앱: 속성 형식 정의  
+실습  
+  
 ### 커스텀 propTypes 유효성 검사기
+
 #### 칸반 앱 : 커스텀 propTypes 유효성 검사기 정의
 ## 컴퍼넌트 조합 전략과 모범 사례
 ### 상태 저장 컴포넌트와 순수 컴포넌트
