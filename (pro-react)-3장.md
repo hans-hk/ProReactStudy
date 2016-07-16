@@ -50,7 +50,9 @@ render(<Greeter/>, document.getElementById('root'));
 실습  
   
 ### 커스텀 propTypes 유효성 검사기
-
+실습  
+[es6  문자열 보간](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals)  
+  
 #### 칸반 앱 : 커스텀 propTypes 유효성 검사기 정의
 ## 컴퍼넌트 조합 전략과 모범 사례
 ### 상태 저장 컴포넌트와 순수 컴포넌트
