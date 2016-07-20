@@ -142,7 +142,7 @@ alert(student1 instanceof Student); // true
 ```
 
 # 프로토타입
-[(기발자님 블로그)Property와 Method](https://brunch.co.kr/@brunch92ny/17)   
+[(기발자님 블로그)Property와 Method](https://brunch.co.kr/@brunch92ny/23)   
 [(mdn)상속과 프로토타입] (https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)  
   
 # 기타 참조
