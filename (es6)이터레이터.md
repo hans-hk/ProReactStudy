@@ -78,8 +78,75 @@ next 메서드를 구현해야 한다.
 
 | Property | Value|
 |:---:|:---:|
-|next	|<p style='text-align:left'>파라미터는 없고 두개의 프로퍼티를 가지는 오브젝트를 반환한다.<br/>done:이터레이터의 종료 여부(boolean)반환,<br/>value:실젝 값</p> |
+|next	|<p style='text-align:left'>파라미터는 없고 두개의 프로퍼티를 가지는 오브젝트를 반환한다.<br/>done:이터레이터의 종료 여부(boolean)반환,<br/>value:실제 값</p> |
+```javascript
+let obj = {
+   array:[1,2,3,4,5],
+   nextIndex: 0,
+   next : function(){
+      if(this.nextIndex < this.array.length){
+         return {
+             value:this.array[this.nextIndex++], 
+             done:false
+         };
+      }
+      return {done:true}
+   }
+}
+
+console.log(obj.next().value);
+console.log(obj.next().value);
+console.log(obj.next().value);
+console.log(obj.next().value);
+console.log(obj.next().value);
+console.log(obj.next().done);
+```
+결과  
+1  
+2  
+3  
+4  
+5  
+true  
 
 ### 이터러블 규약 
+이터러블은 @@iterator 메서드를 제공한다. 이 말은 Symbol.iterator 심볼을 프로퍼티 키로 갖고 있으며, 그 값으로 이터레이터 객체를 반환하는 펑션을 제공한다.  
+```javascript
+let obj = {
+   array : [1,2,3,4,5],
+   nextIndex: 0,
+   [Symbol.iterator]: function(){
+       return { 
+          array:this.array,
+          nextIndex: this.nextIndex,
+          next:function(){
+            if(this.nextIndex < this.array.length){
+              return {
+                value:this.array[this.nextIndex++], 
+                done:false
+              };
+            }
+            return {done:true}
+          }
+       }
+   }
+}
 
+let iterable = obj[Symbol.iterator]();
+
+console.log(iterable.next().value)
+console.log(iterable.next().value)
+console.log(iterable.next().value)
+console.log(iterable.next().value)
+console.log(iterable.next().value)
+console.log(iterable.next().done)
+```
+결과  
+1  
+2  
+3  
+4  
+5  
+true  
+  
 [스펙](http://www.ecma-international.org/ecma-262/6.0/#sec-iteration)은 이렇습니다만, 사람이 볼 문서는 아니군요...;;
