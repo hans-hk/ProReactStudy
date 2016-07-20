@@ -265,5 +265,8 @@ console.log(gen.next().done);
 4   
 5   
 true     
-<img src='http://cfile7.uf.tistory.com/image/250B9B3C55769F3010710D' width='500'/>
+<img src='http://cfile7.uf.tistory.com/image/250B9B3C55769F3010710D' width='500'/>   
+뭔가 이건... ;;; 새로운 우주가 보이는 군요...!    
+   
+   
 [스펙](http://www.ecma-international.org/ecma-262/6.0/#sec-iteration)은 이렇습니다만, 사람이 볼 문서는 아니군요...;;
