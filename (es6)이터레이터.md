@@ -14,3 +14,6 @@ var s = Symbol();
 ```
 Symbol([description])
 ```
+
+description Optional  
+Optional, 문자열(string). 디버깅을 위해 사용할 수 있는 심볼의 description. 심볼에 접근하는 용도로는 사용할 수 없음.
