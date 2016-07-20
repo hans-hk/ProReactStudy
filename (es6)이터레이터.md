@@ -218,8 +218,42 @@ function* generator_func(){
   }
 
   try{
-  }catch(e)
+     yield 2;
+  }catch(e){
+     console.log('error2');
+  }
 }
 
+var gen = generator_func();
+
+console.log(gen.next().value);
+console.log(gen.throw("123").value);
+console.log(gen.throw("1234").done);
+```
+결과는   
+1
+error
+2
+error2
+true  
+  
+## yield* 
+```javascript
+function* generator_func(){
+   yield 2;
+   yield 3;
+}
+
+function* generator_func2(){
+  yield 1;
+  yield* generator_func();
+  yield* [4,5];
+}
+
+var gen = generator_func2();
+console.log(gen.next().value);
+console.log(gen.next().value);
+console.log(gen.next().value);
+```
 
 [스펙](http://www.ecma-international.org/ecma-262/6.0/#sec-iteration)은 이렇습니다만, 사람이 볼 문서는 아니군요...;;
