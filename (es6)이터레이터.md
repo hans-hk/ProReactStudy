@@ -269,4 +269,37 @@ true
 뭔가 이건... ;;; 새로운 우주가 보이는 군요...!    
    
    
+## for ...of 루프
+이것은 이터러블 순회하기 위한 루프   
+```javascript
+function* generator_func(){
+  yield 1;
+  yield 2;
+  yield 3; 
+}
+
+let arr = [1,2];
+
+for(let value of generator_func()){
+   console.log(value);
+}
+
+for(let value of arr){
+   console.log(value);
+}
+``` 
+결과는   
+1  
+2   
+3  
+1  
+2  
+
+[iterator protocol](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Iteration_protocols)   
+[for ... of](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...of)   
+    
+## 꼬리 호출 최적화  
+
+
+
 [스펙](http://www.ecma-international.org/ecma-262/6.0/#sec-iteration)은 이렇습니다만, 사람이 볼 문서는 아니군요...;;
