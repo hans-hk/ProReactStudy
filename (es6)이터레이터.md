@@ -78,10 +78,7 @@ next 메서드를 구현해야 한다.
 
 | Property | Value|
 |:---:|:---:|
-|next	|A zero arguments function that returns an object with two properties:done (boolean)
-Iterator(반복자)가 마지막 반복 작업을 마쳤을 경우 true. 만약 iterator(반복자)에 return 값이 있다면 value의 값으로 지정된다.반환 값에 대한 설명은 여기.
-Iterator(반복자)의 작업이 남아있을 경우 false. Iterator(반복자)에 done 프로퍼티 자체를 특정짓지 않은 것과 동일하다.
-value - Iterator(반복자)으로부터 반환되는 모든 자바스크립트 값이며 done이 true일 경우 생략될 수 있다.|
+|next	| 파라미터는 없고 두개의 프로퍼티를 가지는 오브젝트를 반환한다.Iterator(반복자)가 마지막 반복 작업을 마쳤을 경우 true.만약 iterator(반복자)에 return 값이 있다면 value의 값으로 지정된다.반환 값에 대한 설명은 여기.Iterator(반복자)의 작업이 남아있을 경우 false. Iterator(반복자)에 done 프로퍼티 자체를 특정짓지 않은 것과 동일하다.value - Iterator(반복자)으로부터 반환되는 모든 자바스크립트 값이며 done이 true일 경우 생략될 수 있다.|
 
 ### 이터러블 규약 
 
