@@ -48,3 +48,22 @@ s1
 
 **ES6 심볼이 등장한 가장 중요한 이유가 바로 객체 프로퍼티 키로 사용해서 얘기치 않게 프로퍼티 키와 충돌하는 일을 방지 하는 것이다.**
 ## Symbol.for(string)
+Symbol 객체는 키/값 쌍의 레지스트리를 갖고 있다. Symbol.for()로 심볼을 생성할 때마다 레지스트리에 추가된고 이 메서드는 심볼을 반환한다. 이미 존재하는 서술로 심볼을 생성하면 기존 심볼을 그대로 반환한다. Symbol.for는 항상 전역 범위의 심볼을 생성한다.
+
+```javascript
+let obj = {};
+
+(function(){
+  let s1 = Symbol("name");
+  obj[s1] = "수지";
+})();
+
+// 이 위치에서 obj[s1]은 안보인다.
+
+(function(){
+   let s2 = Symbol.for("age");
+   obj[s2] = 27;
+})();
+
+console.log(obj[Symbol.for("age")]);// 27
+```
