@@ -20,3 +20,6 @@ Optional, 문자열(string). 디버깅을 위해 사용할 수 있는 심볼의 
 
 cf)  
 기본형 변수에 대해 명시적 래퍼 객체를 만드는 것은 ECMAScript 6 부터 더 이상 지원되지 않는다. 하지만, new Boolean, new String 그리고 new Number 와 같이 이미 존재하고 있는 기본형 래퍼 객체는 래거시(lagacy) 요인으로 인해 아직 생성가능하다.
+  
+심볼 설명 부분 참조  
+[심볼](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
