@@ -166,6 +166,29 @@ console.log(gen.next().value);
 console.log(gen.next().value);
 console.log(gen.next().value);
 ```
+<img src='http://s2.quickmeme.com/img/ab/abdd928ceb8c9e10268b31c3c26be47c2fe1edb8037feae792a1fcc40a05e8ca.jpg' width='500'/>   
+조큼 더 활용하면,...
+```javascript
+function* generator_func(){
+   var a = yield 12;
+   var b = yield a + 1;
+   var c = yield b + 2;
+   yield c + 3;
+}
+
+var gen = generator_func();
+console.log(gen.next().value);
+console.log(gen.next(5).value);
+console.log(gen.next(11).value);
+console.log(gen.next(78).value);
+console.log(gen.next().done);
+```
+결과는  
+12  
+6  
+13  
+81  
+true  
 
 
 
