@@ -81,7 +81,20 @@ alert(genderTeller === person1.sayGender); // alerts true
 alert(genderTeller === Person.prototype.sayGender); // alerts true
 ```
 
+위의 예제는 많은 개념들을 한꺼번에 보여주고 있다. 
 
+먼저 이 예제는 자바스크립트에 "per-object methods" 가 존재하지 않는다는 것을 보여준다. JavaScript는 메서드에 대한 레퍼런스가 모두 똑같은 (프로토타입에 처음 정의한) 함수를 참조하고 있기 때문이다.
+ 
+자바스크립트는 어떤 객체의 메서드로서 함수가 호출될 때 현재 "객체의 컨텍스트"를 특별한 "this" 변수에 "연결한다". 이는 아래와 같이 function 객체의 call 메서드를 호출하는 것과 동일하다.
+ 
+(역자주: 참고로, genderTeller() 만 호출했을 때 undefined 가 나타난 것은 해당 메서드가 호출될 때 컨텍스트가 window 로 잡혔기 때문에 window.gender 는 존재하지 않으므로 undefined 가 나타난 것이다.)
+
+```javascript
+genderTeller.call(person1); //alerts 'Male'
+```  
+  
+[call](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/call)  
+[apply](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)  
 
 프로토타입 기반 언어의 원형적인 예는 David Ungar과 Randall Smith가 개발한 'Self'라는 프로그래밍 언어이다. 그러나 클래스가 없는 프로그래밍 스타일이 최근 인기를 얻으며 성장하였고, 자바스크립트, Cecil, NewtonScript, Io, MOO, REBOL, Kevo, Squeak 등의 언어에서 채택되어 왔다
 # 프로토타입
