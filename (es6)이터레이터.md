@@ -73,7 +73,17 @@ ECMAScript 2015 (ES6) 의 한 가지 추가 사항은 새로운 문법이나 bui
 (그렇다고 하는데 정작 이터레이션 이 외에 본 것은 없다는 건 함정!)  
     
 ES6는 이터러블 규약(iterable protocol)과 이터레이터 규약(iterator protocol) 두가지로 나누어 규정한다.
-### 이터레이터 규약 
+### 이터레이터 규약  
+next 메서드를 구현해야 한다.
+
+| Property | Value|
+|next	|A zero arguments function that returns an object with two properties:
+
+done (boolean)
+Iterator(반복자)가 마지막 반복 작업을 마쳤을 경우 true. 만약 iterator(반복자)에 return 값이 있다면 value의 값으로 지정된다. 반환 값에 대한 설명은 여기.
+Iterator(반복자)의 작업이 남아있을 경우 false. Iterator(반복자)에 done 프로퍼티 자체를 특정짓지 않은 것과 동일하다.
+value - Iterator(반복자)으로부터 반환되는 모든 자바스크립트 값이며 done이 true일 경우 생략될 수 있다.|
+
 ### 이터러블 규약 
 
 [스펙](http://www.ecma-international.org/ecma-262/6.0/#sec-iteration)은 이렇습니다만, 사람이 볼 문서는 아니군요...;;
