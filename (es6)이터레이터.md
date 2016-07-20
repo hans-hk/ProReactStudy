@@ -72,3 +72,5 @@ console.log(obj[Symbol.for("age")]);// 27
 ES6는 이터러블 규약(iterable protocol)과 이터레이터 규약(iterator protocol) 두가지로 나누어 규정한다.
 ### 이터레이터 규약 
 ### 이터러블 규약 
+
+[스펙](http://www.ecma-international.org/ecma-262/6.0/#sec-iteration)은 이렇습니다만, 사람이 볼 문서는 아니군요...;;
