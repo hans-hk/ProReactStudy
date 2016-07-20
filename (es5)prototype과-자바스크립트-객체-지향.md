@@ -41,6 +41,8 @@ var person2 = new Person('Female');
 //display the person1 gender
 alert('person1 is a ' + person1.gender); // person1 is a Male
 ```
+[Private Members in JavaScript](http://javascript.crockford.com/private.html)
+>> javascript 에서도 private 멤버를 생성하는 트릭이 있고, priviliged 메서드를 통해 이에 접근할 수 있다.
 
 ## 메서드(The methods)
 ```javascript
