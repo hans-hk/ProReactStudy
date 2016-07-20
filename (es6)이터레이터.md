@@ -190,6 +190,36 @@ console.log(gen.next().done);
 81  
 true  
 
+## return(value) 메서드
+```javascript
+function* generator_func(){
+    yield 1;
+    yield 2;
+    yield 3;
+}
+
+var gen = generator_func();
+console.log(gen.next().value);
+console.log(gen.return(22).value);
+console.log(gen.next().done);
+```
+결과는 
+1  
+22  
+true   
+  
+## throw(exception) 메서드 
+```javascript
+function* generator_func(){
+  try{
+     yield 1;
+  }catch(e){
+     console.log('error');
+  }
+
+  try{
+  }catch(e)
+}
 
 
 [스펙](http://www.ecma-international.org/ecma-262/6.0/#sec-iteration)은 이렇습니다만, 사람이 볼 문서는 아니군요...;;
