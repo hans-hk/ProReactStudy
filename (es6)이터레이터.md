@@ -69,6 +69,9 @@ console.log(obj[Symbol.for("age")]);// 27
 ```
   
 ## 이터레이션 규약
+ECMAScript 2015 (ES6) 의 한 가지 추가 사항은 새로운 문법이나 built-in 이 아니라, protocol 입니다. 이 protocol 은 일정 규칙만 충족한다면 어떠한 객체에 의해서도 구현될 수 있습니다.  
+(그렇다고 하는데 정작 이터레이션 이 외에 본 것은 없다는 건 함정!)  
+    
 ES6는 이터러블 규약(iterable protocol)과 이터레이터 규약(iterator protocol) 두가지로 나누어 규정한다.
 ### 이터레이터 규약 
 ### 이터러블 규약 
