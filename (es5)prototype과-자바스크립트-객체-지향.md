@@ -92,7 +92,8 @@ alert(genderTeller === Person.prototype.sayGender); // alerts true
 ```javascript
 genderTeller.call(person1); //alerts 'Male'
 ```  
-  
+[실행 컨택스트](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/this)
+[실행 컨택스트](http://www.nextree.co.kr/p7363/)
 [call](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/call)  
 [apply](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)  
 
