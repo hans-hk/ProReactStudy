@@ -149,4 +149,18 @@ console.log(iterable.next().done)
 5  
 true  
   
+## 제너레이터 
+제너레이터는 평벙한 함수처럼 생겼지만, 하나의 값만 반환하는 게 아니라 한번에 하나씩 여러 값을 반환하는 함수다. 이 함수를 호출하면 즉시 바디를 실행하지 않고 제너레이터 객체(즉 , 이터러블 + 이터레이터 프로토콜을 모두 구현한 객체)의 새 인스턴스를 반환한다. 제너레이터 객체는 제너레이터 함수의 새로운 실행 콘텍스트를 갖고, next() 메소드를 실행하면 제너레이터 함수 바디를 죽 실행하다가 yield 키워드를 만나면 바로 중지하고 yield된 값을 반환한다.그리고 다시 next() 메서드를 부르면 멈춘 지점부터 실행이 재개되고 그 다음 yield 된 값을 낸다. 제너레이터 함수에 더 이상 yield 할 값이 남아있지 않을 때 done 프로퍼티는 true가 된다.  
+제너레이터 펑션은 fucntion* 으로 표기한다.
+```javascript
+function* generator_func(){
+   yield 1;
+   yield 1;
+   yield 1;
+   yield 1;
+}
+```
+
+
+
 [스펙](http://www.ecma-international.org/ecma-262/6.0/#sec-iteration)은 이렇습니다만, 사람이 볼 문서는 아니군요...;;
