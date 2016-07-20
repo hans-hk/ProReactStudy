@@ -77,6 +77,7 @@ ES6는 이터러블 규약(iterable protocol)과 이터레이터 규약(iterator
 next 메서드를 구현해야 한다.
 
 | Property | Value|
+|:---:|:---:|
 |next	|A zero arguments function that returns an object with two properties:done (boolean)
 Iterator(반복자)가 마지막 반복 작업을 마쳤을 경우 true. 만약 iterator(반복자)에 return 값이 있다면 value의 값으로 지정된다.반환 값에 대한 설명은 여기.
 Iterator(반복자)의 작업이 남아있을 경우 false. Iterator(반복자)에 done 프로퍼티 자체를 특정짓지 않은 것과 동일하다.
