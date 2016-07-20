@@ -10,3 +10,7 @@
 ```javascript
 var s = Symbol();
 ```
+심볼은 리터럴 형식이 없고, 오직 Symbol() 함수로만 생성된다. 이 함수는 호출할 때 마다 유일한 심볼을 반환한다.
+```
+Symbol([description])
+```
