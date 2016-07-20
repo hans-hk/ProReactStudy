@@ -87,7 +87,7 @@ alert(genderTeller === Person.prototype.sayGender); // alerts true
  
 자바스크립트는 어떤 객체의 메서드로서 함수가 호출될 때 현재 "객체의 컨텍스트"를 특별한 "this" 변수에 "연결한다". 이는 아래와 같이 function 객체의 call 메서드를 호출하는 것과 동일하다.
  
-(역자주: 참고로, genderTeller() 만 호출했을 때 undefined 가 나타난 것은 해당 메서드가 호출될 때 컨텍스트가 window 로 잡혔기 때문에 window.gender 는 존재하지 않으므로 undefined 가 나타난 것이다.)
+(참고로, genderTeller() 만 호출했을 때 undefined 가 나타난 것은 해당 메서드가 호출될 때 컨텍스트가 window 로 잡혔기 때문에 window.gender 는 존재하지 않으므로 undefined 가 나타난 것이다.)
 
 ```javascript
 genderTeller.call(person1); //alerts 'Male'
@@ -96,7 +96,50 @@ genderTeller.call(person1); //alerts 'Male'
 [call](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/call)  
 [apply](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)  
 
-프로토타입 기반 언어의 원형적인 예는 David Ungar과 Randall Smith가 개발한 'Self'라는 프로그래밍 언어이다. 그러나 클래스가 없는 프로그래밍 스타일이 최근 인기를 얻으며 성장하였고, 자바스크립트, Cecil, NewtonScript, Io, MOO, REBOL, Kevo, Squeak 등의 언어에서 채택되어 왔다
+## 상속
+```javascript
+// define the Person Class
+function Person() {}
+
+Person.prototype.walk = function(){
+  alert ('I am walking!');
+};
+Person.prototype.sayHello = function(){
+  alert ('hello');
+};
+
+// define the Student class
+function Student() {
+  // Call the parent constructor
+  Person.call(this);
+}
+
+// inherit Person
+Student.prototype = new Person();
+
+// correct the constructor pointer because it points to Person
+Student.prototype.constructor = Student;
+ 
+// replace the sayHello method
+Student.prototype.sayHello = function(){
+  alert('hi, I am a student');
+}
+
+// add sayGoodBye method
+Student.prototype.sayGoodBye = function(){
+  alert('goodBye');
+}
+
+var student1 = new Student();
+student1.sayHello();
+student1.walk();
+student1.sayGoodBye();
+
+// check inheritance
+alert(student1 instanceof Person); // true 
+alert(student1 instanceof Student); // true
+```
+
 # 프로토타입
 
 [(mdn)상속과 프로토타입](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)  
