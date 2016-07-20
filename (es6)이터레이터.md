@@ -23,3 +23,27 @@ cf)
   
 심볼 설명 부분 참조  
 [심볼](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
+
+## 심볼을 프로퍼티로 사용
+```javascript
+let obj = null;
+let s1 = null;
+
+(function(){
+    let s2 = Symbol();
+    s1 = s2;
+    obj = {[s2]:'s1'}
+    console.log(obj[s2]);
+    console.log(obj['s2'] == obj[s1]);
+})();
+
+console.log(obj[s1]);
+```
+결과는 
+```
+s1
+true
+s1
+```
+
+## Symbol.for(string)
