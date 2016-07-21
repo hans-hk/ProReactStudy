@@ -381,4 +381,5 @@ const a = () => (f() , g());
 기타 여러가지 케이스에 대해 설명이 나오네요. 문서 코드를 한번 읽어 보시기 바래요.
 ([tail call optimization in javascript](http://www.2ality.com/2015/06/tail-call-optimization.html))  
 
-[스펙](http://www.ecma-international.org/ecma-262/6.0/#sec-iteration)은 이렇습니다만, 사람이 볼 문서는 아니군요...;;
+cf)   
+[es6 이터레이터 스펙](http://www.ecma-international.org/ecma-262/6.0/#sec-iteration)은 이렇습니다만, 사람이 볼 문서는 아니군요...;;
