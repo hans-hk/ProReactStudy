@@ -299,7 +299,86 @@ for(let value of arr){
 [for ... of](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...of)   
     
 ## 꼬리 호출 최적화  
+es6는 꼬리 호출에 대한 최적화를 합니다.(strict 모드에서)  
+여하튼 꼬리 호출에서 새롭게 실행 스택을 만들지 않고 기존 스택을 재사용(?) 한다고 하여 좀 더 최적화가 가능 하다고 하네요.  
+([tail call optimization in javascript](http://www.2ality.com/2015/06/tail-call-optimization.html))  
+위 링크 문서에서는 일반적인 호출과 꼬리 호출에서 최적하는 부분을 설명하고 있습니다. 또한 어떤 것이 꼬리 호출인지에 대해서도 설명하고 있군요.
+몇몇 부분만 참고 하자면, 최적화는 다음과 같은 코드가 있을 때,   
+```javascript
+function id(x) {
+        return x; // (A)
+    }
+    function f(a) {
+        let b = a + 1;
+        return id(b); // (B)
+    }
+    console.log(f(2)); // (C)
+```
+Normal execution                          
+<img src='http://4.bp.blogspot.com/-hnHFx8yImQw/VZJ5rW5XJyI/AAAAAAAABI8/fNjrEgBgWlQ/s1600/stack_frames_3.jpg' width='350'/>  
+Tail call optimization    
+<img src='http://4.bp.blogspot.com/-5A7wdXF9iiE/VZJ5q8ImSKI/AAAAAAAABI4/soyxT7WBQ-s/s1600/stack_frames_2_tco.jpg' width='350'/>   
+이런 식을 불어나는 호출 스택을 축약 해버린다는 군요.   
+  
+또한 몇몇 햇깔릴 수 있는 꼬리 tail call에 대해서 이야기 하는데요. 인용하면
+## 표현 상에서 꼬리 호출
+> 애로우 펑션은 몸체로서 표현을 가질 수 있다. 꼬리 호출 최적화를 위해 우리는 그러므로 표현 내에서 함수 호출이 tail position에 있는 지를 이해해야만 한다. 오로지 다음 표현만이 꼬리 호출을 포함할 수 있다.  
+다시 말해 아래의 표현으로 꼬리 호출을 포함한다는 이야기...
+* 삼항 연산자 
+* || 연산자
+* && 연산자
+* , 연산자
+그러면,
 
+```javascript
+    const a = x => x ? f() : g();
+```
+여기서 f()과 g()는 tail position에 있는 거고,
+```javascript
+    const a = () => f() || g()
+```
+여기서 f()는 tail position이 아니고,g()는 tail position에 있는 거고, 그러한 이유는 
+```javascript
+    const a = () => {
+        let fResult = f(); // not a tail call
+        if (fResult) {
+            return fResult;
+        } else {
+            return g(); // tail call
+        }
+    };
+```
+코드 컨버젼 했을 때 위와 같기 때문이고 
+
+```javascript
+    const a = () => f() && g();
+```
+여기서 f()는 tail position이 아니고,g()는 tail position에 있는 거고, 그러한 이유는 
+```javascript
+const a = () => {
+        let fResult = f(); // not a tail call
+        if (!fResult) {
+            return fResult;
+        } else {
+            return g(); // tail call
+        }
+    };
+
+```
+컨버젼 시 위와 같기 때문,
+```javascript
+const a = () => (f() , g());
+```
+여기서 f()는 tail position이 아니고,g()는 tail position에 있는 거고, 그러한 이유는 
+```javascript
+    const a = () => {
+        f();
+        return g();
+    }
+```
+이러네요.
+
+기타 여러가지 케이스에 대해 설명이 나오네요. 문서 코드를 한번 읽어 보시기 바래요.
 
 
 [스펙](http://www.ecma-international.org/ecma-262/6.0/#sec-iteration)은 이렇습니다만, 사람이 볼 문서는 아니군요...;;
