@@ -74,3 +74,9 @@ render(<Greeter/>, document.getElementById('root'));
 ### 태스크 조작
 ### 기본적인 낙관적 업데이트 롤백
 ## 정리
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+https://facebook.github.io/react/docs/update-ko-KR.html
+
+http://webframeworks.kr/tutorials/react/react-animation/
