@@ -55,6 +55,47 @@ Greeter.defaultProps = {
 render(<Greeter/>, document.getElementById('root'));
 ```
 ### 기본 제공되는 propTypes 유효성 검사기
+#### primitives
+기본형식에 대한 validation  
+PropTypes.array, PropTypes.bool, PropTypes.func, PropTypes.number, PropTypes.object, PropTypes.string
+  
+#### combilned
+PropTypes.oneOfType : Object가 가질수 있는 타입들 지정
+```javascript
+PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.instanceOf(Message)
+]);
+```
+  
+PropTypes.arrayOf : prop는 array 이고, 그 구성 타입을 지정    
+
+```javascript
+PropTypes.arrayOf(PropTypes.number);
+```
+PropTypes.objecOf : prop는 obejct 이고, 그 구성 타입을 지정
+```javascript
+PropTypes.objectOf(PropTypes.number);
+```
+  
+PropTypes.shape : Object의 타입을 명확히 지정
+```javascript
+PropTypes.shape({
+    color: PropTypes.string,
+    fontSize: PropTypes.number
+})
+```
+#### specail
+PropTypes.node : prop는 랜더될수 있는 특정 value (number, string, element, array)일 수 있다.  
+PropTypes.element : prop는 React Element이다  
+PropTypes.instanceOf : pop는 주어진 클래스의 인스턴스이다.  
+PropTypes.oneOf : prop를 특정 값으로 제한한다  
+```javascript
+PropTypes.oneOf([ "News", "Photos" ])
+```
+
+
 책 참조  
 [(공식문서)재사용 가능한 컴포넌트](https://facebook.github.io/react/docs/reusable-components-ko-KR.html)  
   
