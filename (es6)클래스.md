@@ -382,6 +382,9 @@ arr2 = arr2.map(function(value){
      return value + 1;
 });
 
+console.log( arr1 instanceof myCustomArray1 );
+console.log( arr2 instanceof myCustomArray2 );
+
 console.log( arr1 instanceof Array );
 console.log( arr2 instanceof Array );
 ```
