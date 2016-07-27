@@ -303,8 +303,17 @@ class myClass {
 
 myClass['my' + 'Method']();//hi
 ```
+```javascript
+var s = Symbol('test');
 
+class myClass2 {
+   static [s](){
+      console.log('hi');
+   }
+}
 
+myClass2[s]();//hi
+```
 
 
 
