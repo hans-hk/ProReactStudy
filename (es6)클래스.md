@@ -25,7 +25,100 @@
 ### 정의
 #### 클래스 선언
 ```javascript
+class Student {
+  constructor(name){
+     this.name = name;
+  }
+}
+var s1 = new Student('kdo');
+console.log(s1.name);
 ```
+  
+* 클래스는 함수다.
+* 클래스 바디 안의 모든 코드는 기본적으로 [strict 모드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)이다.  
+
+es5 코드 
+```javascript
+function Student(name){
+ this.name = name
+}
+var s1 = new Student('kdo');
+console.log(s1.name);
+```
+
+```javascript
+class Student {
+  constructor(name){
+     this.name = name;
+  }
+}
+
+function School(name){
+   this.name = name;
+}
+
+console.log(typeof Student);// function 
+console.log(typeof Student == typeof School); //true
+```
+**결론 : 그래서 클래스는 그냥 함수다.**  
+  
 #### 클래스 표현식
 ```javascript
+var Student = class {
+  constructor(name){
+     this.name = name;
+  }
+}
 ```
+  
+## 프로타입 메서드
+**클래스 바디 안에 있는 메서드는 모두 클래스의 protype 프로퍼티로 추가된다.**
+```javascript
+class Person {
+  constructor(name){
+     this.name = name;
+  }
+
+  printProfile(){
+     consolo.log("이름: " + this.name + ", 나이 : " + this.age );
+  }
+}
+var p = new Student('psy',27);
+p.printProfile(); // 이름 : psy , 나이 :27
+
+console.log("printProfile" in p.__proto__ ); //true
+console.log("printProfile" in Persion.protype );//true
+```
+
+## get/set 메서드 
+```javascript
+class Person {
+  constructor(name){
+     this._name_ = name;
+  }
+
+  get name(){
+     return this._name_;
+  }
+
+  set name(name){
+     this._name_ = name;  
+  }
+}
+
+var p = new Person('kdo');
+console.log(p.name); //kdo
+p.name = 'psy';
+console.log(p.name); //psy
+
+console.log('name' in p.__proto__);// true
+console.log('name' in Person.prototype);// true
+
+console.log(Object.getOwnPropertyDescriptor(Person.prototype, "name").set );
+// function name(name) { this._name_ = name; }
+console.log(Object.getOwnPropertyDescriptor(Person.prototype, "name").get );
+// function name() { return this._name_; }
+console.log(Object.getOwnPropertyDescriptor(p, "_name_").value );
+// psy
+```
+cf) [getOwnPropertyDescriptor](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor)
