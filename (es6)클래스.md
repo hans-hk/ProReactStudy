@@ -124,7 +124,7 @@ console.log(Object.getOwnPropertyDescriptor(p, "_name_").value );
 cf) [getOwnPropertyDescriptor](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor)
 
 ## 제네레이터 메소드
-<img src='http://www.hotel-r.net/im/hotel/de/relax-1.jpg' width='400' alt'일단 마음을 진정시키자!' title='일단 마음을 진정시키자!'/>
+<img src='http://www.hotel-r.net/im/hotel/de/relax-1.jpg' width='400' alt'일단 마음을 진정시키자!' title='일단 마음을 진정시키자!'/>    
 [[(es6)이터레이터]]  
     
 ```javascript
@@ -141,8 +141,46 @@ class MyClass {
 var obj = new MyClass();
 let gen = obj.generator_func();
 
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
+console.log(gen.next().value); //1
+console.log(gen.next().value); //2
+console.log(gen.next().value); //3
+console.log(gen.next().value); //4
+console.log(gen.next().value); //5
+console.log(gen.next().done);  //true
 ```
+
+## 정적메서드 
+```javascript
+class Student {
+  constructor(name){
+     this.name = name;
+  }
+
+  static findName(student){
+     return student.name;
+  }
+}
+
+var s = new Student('kdo');
+var name = Student.findName(s); 
+console.log(name);//kdo
+```
+
+es5)  
+```javascript
+function Student(name){
+ this.name = name;
+}
+
+Student.findName = function(student){
+   return student.name;
+}
+
+var s = new Student('kdo');
+var name = Student.findName(s); 
+console.log(name);//kdo
+```
+  
+![class](http://exploringjs.com/es6/images/classes----methods.jpg)  
+[es6 class](http://exploringjs.com/es6/ch_classes.html)  
+  
