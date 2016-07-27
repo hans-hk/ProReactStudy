@@ -184,5 +184,127 @@ console.log(name);//kdo
 ![class](http://exploringjs.com/es6/images/classes----methods.jpg)  
 [es6 class](http://exploringjs.com/es6/ch_classes.html)  
   
-**그래서 결국엔 es6나 es5나 클래스 구현 방식에 큰 차이는 없다.**
+**그래서 결국엔 es6나 es5나 클래스 구현 방식에 큰 차이는 없다.**  
+이쯤에서 기억해야 할 것은 **모든 것은 프로타입과 연관 되어 있따! 다만 es5의 새로운 구현이다.**  
+```javascript  
+var A = class (){
+  constructor(){
+  }
+  
+  a(){
+     b();//자바가 아니다.
+  }
+  
+  b(){ 
+      console.log('test');
+  }
+}
+
+new A().a();//error
+
+A = class (){
+  constructor(){
+  }
+  
+  a(){
+     this.b();
+  }
+  
+  b(){ 
+      console.log('test');
+  }
+}
+new A().a();//test
+```  
+  
+## 상속
+es6 에서는 extends, super 키워드가 도입되었다.  
+super는  
+* 클래스 coonstructor 메서드에서 부모 생성자를 호출한다.
+* 클래스 메소드 내부에서 부모 생성자의 정적/비정적 메소드를 참조한다.
+  
+```javascript  
+function A(a){
+   this.a = a;
+}
+
+A.protype.printA = function(){
+   console.log(this.A);
+};
+
+class B extends A {
+   constructor(a, b){
+      super(a);
+      this.b = b;
+   }
+
+   printB(){
+        console.log(this.b);
+   }
+
+   static sayHello(){
+      console.log('hello');
+   }
+}
+
+class C extends B {
+   constructor(a, b ,c){
+      super(a ,b );
+      this.c = c;
+   }    
+   
+   printC(){
+         console.log(this.c);
+   }
+
+   printAll(){
+       this.printC();
+       super.printB();
+       super.printA();
+   }
+}
+
+var obj = new C(1,2,3);
+obj.printAll();// 3  2  1
+c.sayHello();//hello
+```
+
+```javascript  
+class Super {
+  static whoami() {
+    return "Super";
+  }
+  lognameA() {
+    console.log(Super.whoami());
+  }
+  lognameB() {
+    console.log(this.constructor.whoami());
+  }
+}
+class Sub extends Super {
+  static whoami() {
+    return "Sub";
+  }
+}
+new Sub().lognameA(); // Super
+new Sub().lognameB(); // Sub
+```
+
+> 자식 클래스에 constructor 메소드가 없으면 부모 클래스의 constructor 메서드가 자동으로 호출 된다.
+  
+ 
+## 조합 메소드명
+```javascript
+class myClass {
+  static ['my' + 'Method'](){
+     cosole.log('hi');
+  }
+}
+
+myClass['my' + 'Method']();//hi
+```
+
+
+
+
 
