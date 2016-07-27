@@ -358,33 +358,70 @@ console.log(new myClass() instanceof myClass);// false
 ```
   
 ## 정적 접근자 프로퍼티, Symbol.species
-정적 접근자 프로퍼티, @@species(Symbol.species 같은 Symbol의 내장객체는 보통 이렇게 표현 합니다.)는 부모 생성자 메서드가 새 인스턴스를 반환하면 어떤 생성자를 써야 할 지 알려줘야 할 때 자식 생성자에 선택적으로 추가한다.
+es6에서 자바스크립트 생성자의 모든 내장 메소드는 새 인스턴스 반환 시 @@species를 조사한다. 배열, 맵, 프라미스 등은 생성자 반환 시 @@species를 본다
 ```javascript
-class myCustomArray1 extends Array {
-   static get [Symbol.species](){
-       return Array;
+class MyArray extends Array {
+  // Overwrite species to the parent Array constructor
+  static get [Symbol.species]() { return Array; }
+}
+var a = new MyArray(1,2,3);
+var mapped = a.map(x => x * x);
+
+console.log(mapped instanceof MyArray); // false
+console.log(mapped instanceof Array);   // true
+```
+  
+## 암시적 파라미터, new.target
+es6에서는 모든 함수에 new.target가 추가됨.
+이것은 
+* 생성자를 new 키워드로 호출하면 new.target은  이 생성자를 가르킨다.
+* 생성자를 super 키워드로 호출하면 new.target 값은 super에 해당하는 생성자의 new.target 값이다.  
+  
+```javascript
+function Foo() {
+  if (!new.target) throw "Foo() must be called with new";
+  console.log("Foo instantiated with new");
+}
+
+Foo(); // throws "Foo() must be called with new"
+new Foo(); // logs "Foo instantiated with new"
+
+function myConstructor(){
+    console.log(new.target.name)
+}
+
+class myClass extends myConstructor {
+   construnctor(){
+      super();
    }
 }
 
-class myCustomArray2 extends Array {}
-
-var arr1 = new myCustomArray1(0,1,2,3,4);
-var arr2 = new myCustomArray2(0,1,2,3,4);
-
-console.log(arr1 instanceof myCustomArray1);//true
-console.log(arr2 instanceof myCustomArray2);//true
-
-arr1 = arr1.map(function(value){
-     return value + 1;
-});
-
-arr2 = arr2.map(function(value){
-     return value + 1;
-});
-
-console.log( arr1 instanceof myCustomArray1 );
-console.log( arr2 instanceof myCustomArray2 );
-
-console.log( arr1 instanceof Array );
-console.log( arr2 instanceof Array );
+var obj1 = new myClass();//myClass
+var obj2 = new myConstructor();//myConstructor
 ```
+
+## 객체 리터럴에 super 사용
+super 키워드는 객체 리터럴의 단축 메소드에서도 사용할 수 있다. 객체 리터럴로 정의한 객체의 [[prototype]] 프로퍼티와 같은 값이다.
+객체 리터럴의 super는 자식 객체가 오버라이드한 프로퍼티를 접근하는 용도로 쓴다.  
+  
+```javascript
+var obj1 = {
+   print(){
+      console.log('hi');
+   }
+}
+
+var obj2  = {
+   print(){
+      super.print();
+   }
+}
+
+Object.setPrototypeof(obj2,obj1);
+obj2.print();//hi
+```
+
+출처)   
+[ECMAScript 6 길들이기](http://www.yes24.com/24/goods/23904865)   
+**[Classes in ECMAScript 6 (final semantics)](http://www.2ality.com/2015/02/es6-classes-final.html)**    
+[mdn](https://developer.mozilla.org/ko/)
