@@ -358,4 +358,30 @@ console.log(new myClass() instanceof myClass);// false
 ```
   
 ## 정적 접근자 프로퍼티, Symbol.species
- 
+정적 접근자 프로퍼티, @@species(Symbol.species 같은 Symbol의 내장객체는 보통 이렇게 표현 합니다.)는 부모 생성자 메서드가 새 인스턴스를 반환하면 어떤 생성자를 써야 할 지 알려줘야 할 때 자식 생성자에 선택적으로 추가한다.
+```javascript
+class myCustomArray1 extends Array {
+   static get [Symbol.species](){
+       return Array;
+   }
+}
+
+class myCustomArray2 extends Array {}
+
+var arr1 = new myCustomArray1(0,1,2,3,4);
+var arr2 = new myCustomArray2(0,1,2,3,4);
+
+console.log(arr1 instanceof myCustomArray1);//true
+console.log(arr2 instanceof myCustomArray2);//true
+
+arr1 = arr1.map(function(value){
+     return value + 1;
+});
+
+arr2 = arr2.map(function(value){
+     return value + 1;
+});
+
+console.log( arr1 instanceof Array );
+console.log( arr2 instanceof Array );
+```
