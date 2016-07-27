@@ -314,6 +314,48 @@ class myClass2 {
 
 myClass2[s]();//hi
 ```
+## 프로퍼티 속성
+* 정적 메소드는 쓰기 가능, 설정 가능이지만 열거 불가다.
+* 클래스의 prototype와 prototype.constructor 프로퍼티는 쓰기 불가, 열거 불가, 설정 불가이다.
+* prototype 프로퍼티의 속성은 쓰기 가능, 설정 가능이지만 열거 불가이다.
+  
+cf )   
+[ES6 In Depth: 클래스](http://hacks.mozilla.or.kr/2016/03/es6-in-depth-classes/)
+[Enumerability in ECMAScript 6](http://www.2ality.com/2015/10/enumerability-es6.html)
 
+## 클래스는 호이스팅 안 된다.
+```javascript
+foo(); // works, because `foo` is hoisted
+    
+function foo() {}
 
+//--------------------------------------
+new Foo(); // ReferenceError
+    
+class Foo {}
 
+//--------------------------------------
+function functionThatUsesBar() {
+    new Bar();
+}
+    
+functionThatUsesBar(); // ReferenceError
+class Bar {}
+functionThatUsesBar(); // OK
+```
+
+## 생성자 메서드 결과 오버라이딩
+constructor 메서드는 내부에 return 문이 없을 경우 새 인스턴스를 반환한다.  
+return문이 있다면 해당 값을 반환한다.
+```javascript
+class myClass {
+   constructor(){
+      return Object.create(null);
+   }
+}
+
+console.log(new myClass() instanceof myClass);// false
+```
+  
+## 정적 접근자 프로퍼티, Symbol.species
+ 
