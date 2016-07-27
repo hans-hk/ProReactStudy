@@ -184,3 +184,5 @@ console.log(name);//kdo
 ![class](http://exploringjs.com/es6/images/classes----methods.jpg)  
 [es6 class](http://exploringjs.com/es6/ch_classes.html)  
   
+**그래서 결국엔 es6나 es5나 클래스 구현 방식에 큰 차이는 없다.**
+
