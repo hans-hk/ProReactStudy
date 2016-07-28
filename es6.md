@@ -9,6 +9,6 @@
 
 # 참고 및 인용
 * [mdn](https://developer.mozilla.org/ko/)
-* [(도서)Ecmascript 6 길들이기][http://www.yes24.com/24/goods/23904865]
+* [(도서)Ecmascript 6 길들이기](http://www.yes24.com/24/goods/23904865)
 * [www.2ality.com](http://www.2ality.com/)
 등등...    
