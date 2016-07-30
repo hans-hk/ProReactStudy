@@ -96,7 +96,62 @@ react-motion, Animated(네이티브 용)
   
 타입은 복잡하고 또한 더 복잡해지는 앱 개발에서 적절한 drag/drop설정을 정확히 하는데 도움이 되며, drage source와 drop target을 하나의 타입에 동시에 설정도 가능 하다. 또한 이러한 타입을 constants로 가지게 될 것이다.  
   
-### 
+### 모니터
+드래그 앤드 드랍은 본질적으로 상태와 관계가 있다.드래그 되던 또는 아니던 아이템이 있던 없던 이러한 상태는 어딘가에 존재한다.  
+  
+리액트 Dnd는 모니터 호출을 통해 내부 상태 저장소에 대한 몇몇 래퍼를 통해 컴퍼넌트에 이러한 상태를 노출 시킨다. 모니터는 드래그 앤드 드랍 상태 변화에 대한 응답을 컴퍼넌트의 프로퍼티로 업데이트 하게 해준다.  
+  
+각 컴퍼넌트들은 드래그 드랍 상태를 추적할 필요가 있으며, 모니터로 부터 그것에 관련되는 것들을 갱신해주는 콜렉팅 함수를 정의 한다. 리엑트 Dnd는 적절한 시기에 콜렉팅 펑션을 호출하고 컴포넌트의 props에 반환 값을 병합한다.  
+  
+아래는 콜렉트 함수의 예제인다.
+```javascript
+function collect(monitor) {
+  return {
+    highlighted: monitor.canDrop(),
+    hovered: monitor.isOver()
+  };
+}
+```
+  
+### Connectors
+만약 백엔트가 DOM 이벤트를 다루고 그 DOM을 리액트를 통한 컴포넌트로 사용 시 어떻게 DOM 노드에 대한 이벤트를 들을 수 있을까? 커넥터를 보면, 커넥터는 render 펑션 상에서 미리 정해진 역활(drag source, drag preview, drop target)을 부여할 수 있다.  
+  
+예제를 보자.  
+```javascript
+function collect(connect, monitor) {
+  return {
+    highlighted: monitor.canDrop(),
+    hovered: monitor.isOver(),
+    connectDropTarget: connect.dropTarget()
+  };
+}
+```
+컴퍼넌트의 렌더 메서드에서, 우리는 모니터로 부터 획득한 정보와 커넥터로 부터 얻어낸 함수에 접근 할 수 있게된다.  
+   
+```javascript    
+render() {
+  const { highlighted, hovered, connectDropTarget } = this.props;
+
+  return connectDropTarget(
+    <div className={classSet({
+      'Cell': true,
+      'Cell--highlighted': highlighted,
+      'Cell--hovered': hovered
+    })}>
+      {this.props.children}
+    </div>
+  );
+}
+```
+connectDropTarget은 리엑트 Dnd가 컴퍼넌트의 root DOM 노드를 유효한 drop target 임을 알려주며, 거기에 백엔드가 드랍이벤트를 다룰 수 있게 해준다. 내부적으로 리액트 엘리먼트에 콜백 참조를 붙이는 방식이고, 해당 콜백 함수는 커넥터에 의해 저장되며, shouldComponentUpdate 최적화를 깨지 않는다.  
+  
+### Drag Source and Drop Targets
+이제 리액트 Dnd가 컴퍼넌트에 무엇을 주입하는지에 대해 보자.  
+  
+어떻게 그런 props에 인젝트 되는 것을 설정할까? 어떻게 드래그 드랍 이벤트의 반응 상에서 사이드 이펙트가 수행되나 
+
+
+
 
 
 ```javascript
