@@ -43,6 +43,17 @@ cf )
 ![keyframe](https://github.com/otwm/ProReactStudy/blob/master/chapter04/doc/keyframe.png)  
 만능은 아니다.
 ## 다른 형태의 애니메이션 
+### DOM 기반 웹 애니메이션 라이브러리
+> 피쳐 측면에서 가장 완성도가 높은 것으로 알려져 있는 라이브러리로는 [Velocity](http://velocityjs.org/)와 [Greensock](http://velocityjs.org/)이 있고, 최근의 강자로는 [popmotion](https://popmotion.io/)이 있습니다. Velocity의 경우 React와 사용하려는 시도가 많이 있어, 트위터에서 개발한 [velocity-react](https://github.com/twitter-fabric/velocity-react) 같은 라이브러리를 사용하는 것도 하나의 방법입니다.
+
+> 이러한 라이브러리들은 stagger나 decay 등의 일반적인 애니메이션 패턴들이 미리 만들어져 있어, 몇 개의 메서드만 사용해서 쉽게 애니메이션을 할 수 있다는 장점이 있습니다.
+### SVG
+[Adding a third dimension to SVG pictures](http://debeissat.nicolas.free.fr/svg3d.php)  
+[you](http://svg-wow.org/camera/camera.xhtml)    
+   
+### CANVAS  
+[Tearable Cloth](http://codepen.io/dissimulate/pen/KrAwx)  
+
 
 
 
