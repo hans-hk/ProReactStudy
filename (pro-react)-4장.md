@@ -114,7 +114,7 @@ function collect(monitor) {
 ```
   
 ### Connectors
-만약 백엔트가 DOM 이벤트를 다루고 그 DOM을 리액트를 통한 컴포넌트로 사용 시 어떻게 DOM 노드에 대한 이벤트를 들을 수 있을까? 커넥터를 보면, 커넥터는 render 펑션 상에서 미리 정해진 역활(drag source, drag preview, drop target)을 부여할 수 있다.  
+만약 백엔트가 DOM 이벤트를 다룬다고 할 때, 실제로 그 DOM을 리액트로 정의된 컴포넌트로 사용 시 어떻게 DOM 노드에 대한 이벤트를 들을 수 있을까? 커넥터를 보면, 커넥터는 render 함수에서 미리 정해진 역활(drag source, drag preview, drop target)을 부여할 수 있다.  
   
 예제를 보자.  
 ```javascript
