@@ -56,6 +56,21 @@ cf )
 ### CANVAS  
 [Tearable Cloth](http://codepen.io/dissimulate/pen/KrAwx)  
 
+## 프로그래밍 방식으로 CSS 트랜지션과 애니메이션 시작 
+[menu](https://github.com/otwm/ProReactStudy/blob/master/chapter04/basicCssTransition/menu.html)  
+  
+## ReactCSSTransitionGroup
+> CSSTransitionGroup의 API는 굉장히 단순합니다. 마운트와 언마운트시 transitionName에 -enter -enter-active 등의 현재 상태를 표현하는 클래스를 교환해주는 것에 불과합니다. jQuery로 css 애니메이션을 할 때 'active', 'inactive' 등의 상태를 붙여서 애니메이션을 하는 것처럼 말이죠. css는 SCSS로 작성하면 훨씬 편리하게 작성할 수 있고, [믹스인](http://stackoverflow.com/questions/31553622/defining-react-csstransitiongroup-animations-with-stylus-mixin)을 사용하여 transitionName과 패러미터를 주는 식으로 줄여 쓸 수 있습니다.  
+  
+책 128p 참조  
+[git](https://github.com/otwm/ProReactStudy/blob/master/chapter04/src/App.js)  리비젼 참조 8cc93231458638497e446398c4204105fe470e8c
+
+## 다른 react 애니메이션 라이브러리
+react-motion, Animated(네이티브 용) 
+  
+[webframework](http://webframeworks.kr/tutorials/react/react-animation/)   
+  
+## 드래그 앤 드롭
 
 
 
