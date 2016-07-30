@@ -171,10 +171,21 @@ npm install --save react-dnd
 npm install --save react-dnd-html5-backend
 ```
 드래그 앤 드롭을 구현하는 react-dnd-html5-backend 말고 다른 버전이 있다.
+  
+[overview](http://gaearon.github.io/react-dnd/docs-overview.html)
 
+### 컨테이너 컴포넌트
+모든 드래그 앤드 드롭 상호작용이 수행되는 컨테이너 컴포넌트.    
+소스는 깃헙 참조   
+책 참조   
+     
 ### 타입
+컴포넌트 identity  
+  
 ### 사양 객체
+
 ### 콜렉팅 함수
+
 
 
 
