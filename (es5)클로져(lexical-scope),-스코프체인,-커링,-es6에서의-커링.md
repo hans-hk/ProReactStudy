@@ -76,6 +76,19 @@ myFunc();
 ## Scope & Scope Chain
 > ECMA-262 3 Edition 에서는 함수객체는 \[\[scope\]\]라는 프로퍼티를 가지며 \[\[scope\]\]는 함수객체가 생성되는 시점과 관련된 Object Reference 정보를 가지고 있으며 이 Object Reference 정보들을 Scope Chain 이라고 한다고 정의한다. 즉 scope는 함수객체가 접근가능한 Valiable Object의 유효범위이며 이 Valiable Object들의 집함을 Scope Chain 이라고 한다.
 
+> 함수객체는 생성과정에서 함수구문 내에서 선언된 지역변수들을 Valiable Object 라는 객체에 저장한다. 그리고 전역객체(Global Object)의 Valiable Object 와 연결된다. 전역객체의 Valiable Object는 전역객체 자신이다. 이때 이 Valiable Object들에 대한 연결들을 Scope Chain 으로 관리하고 [[scope]]를 통해 Scope Chain을 참조하여 함수객체가 가지는 유효범위를 설정하게 되는 것이다.
+  
+```javascript
+var x = 1;
+function foo() {
+    var y = 10;
+    return a+x;
+}
+console.log(z);
+>ReferenceError;
+```
+
+![scope chain](http://insanehong.kr/post/javascript-scope/@img/diagram1.jpeg)
 # 커링
 # es6에서의 커링
 # 참조 사이트 
