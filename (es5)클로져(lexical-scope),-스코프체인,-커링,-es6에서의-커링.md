@@ -74,7 +74,7 @@ myFunc();
 도대체 자바스크립트는 왜 이렇게 체인을 조아하나요? ㅎ  
   
 ## Scope & Scope Chain
-> ECMA-262 3 Edition 에서는 함수객체는 {[[scope]]} 라는 프로퍼티를 가지며 [[[[scope]]]]는 함수객체가 생성되는 시점과 관련된 Object Reference 정보를 가지고 있으며 이 Object Reference 정보들을 Scope Chain 이라고 한다고 정의한다. 즉 scope는 함수객체가 접근가능한 Valiable Object의 유효범위이며 이 Valiable Object들의 집함을 Scope Chain 이라고 한다.
+> ECMA-262 3 Edition 에서는 함수객체는 [[[[scope]]]] 라는 프로퍼티를 가지며 [[[[scope]]]]는 함수객체가 생성되는 시점과 관련된 Object Reference 정보를 가지고 있으며 이 Object Reference 정보들을 Scope Chain 이라고 한다고 정의한다. 즉 scope는 함수객체가 접근가능한 Valiable Object의 유효범위이며 이 Valiable Object들의 집함을 Scope Chain 이라고 한다.
 
 # 커링
 # es6에서의 커링
