@@ -18,6 +18,7 @@ Welcome to the Pro React Study wiki!
 * [[es6]]
 * [[webpack]]
 * [[(es5)prototype과 자바스크립트 객체 지향]]
+* [[(es5)클로져(lexical scope), 스코프체인, 커링, es6에서의 커링]]
 * redux
 
 ## 문서 번역
