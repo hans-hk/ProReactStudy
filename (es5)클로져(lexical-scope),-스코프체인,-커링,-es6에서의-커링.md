@@ -409,7 +409,7 @@ const curring = a => b => c => { return a + b + c };
 console.log( curring(1)(2)(3) ) ;
 ```
 
-[currying-in-es6][(https://h3manth.com/new/blog/2015/currying-in-es6/)  
+[currying-in-es6](https://h3manth.com/new/blog/2015/currying-in-es6/)  
 
 
 # 참조 사이트 
