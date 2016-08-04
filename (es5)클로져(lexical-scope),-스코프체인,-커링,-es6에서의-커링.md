@@ -154,6 +154,31 @@ function dynamic3(){
 dynamic3();
 ````
 
+closure2)  
+```javascript
+function test(param1){
+    var test = 1;
+    var cal1 = param1 + test;
+    return function(param2){
+        var test = 2;
+        var cal2 = cal1 + param2 + test;
+        return function(param3){
+            var test = 3;
+            var cal3 = cal2 + param3 + test;
+            return cal3;
+        }
+    }
+}
+
+var returnedTest = test(10);
+var temp1 = returnedTest(20);
+var temp2 = temp1(30);
+
+console.log(temp2);
+
+````
+<img  src='https://github.com/otwm/ProReactStudy/blob/master/submission/img/closure2.png?raw=true' 
+   width='500' />
 
 # 커링
 # es6에서의 커링
