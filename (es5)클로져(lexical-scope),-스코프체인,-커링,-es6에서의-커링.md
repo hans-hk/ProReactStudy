@@ -128,9 +128,31 @@ closure1)
     var result = f();
     console.log("Result is: " + result);     
 ```
-
+  
+<img  src='https://github.com/otwm/ProReactStudy/blob/master/submission/img/closure1.png?raw=true' 
+   width='500' />
 
 dynamic)
+```javascript
+function dynamic1(){
+    var a = 1;
+    console.log('in 1 a : ' + a);
+    dynamic2();
+}
+
+function dynamic2(){
+    var a = 2;
+    console.log('in 2 a : ' + a);
+}
+
+function dynamic3(){
+    var a = 3;
+    console.log('in 3 a : ' + a);
+    dynamic1();
+}
+
+dynamic3();
+````
 
 
 # 커링
