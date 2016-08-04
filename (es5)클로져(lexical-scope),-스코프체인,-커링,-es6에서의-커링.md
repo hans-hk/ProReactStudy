@@ -310,6 +310,94 @@ closureExample2.html
 
 
 # 커링
+커링은 무엇일까요?  
+  
+쉽게 말하면, 커리 함수의 인수의 부분적인 적용을 가능하게하는 기능을 구축하는 방법입니다. 이것이 의미하는 것은 함수가 기대되는 모든 인수를 전달하고 결과를 얻을 또는 이러한 인수의 부분 집합을 전달하고 나머지 인수를 기다리고 기능을 되 찾을 수있을 것입니다. 정말 간단합니다.  
+  
+커리는 기능적인 개념을 중심으로 구축되고있는 같은 하스켈과 스칼라 등의 언어 중의 원소입니다. JavaScript는 기능적인 능력을 가지고 있습니다 만, 커리는 (적어도없는 언어의 현재 버전은) 기본적으로 내장되어 있지 않습니다. 그러나 우리는 이미 몇 가지 기능의 트릭을 알고, 우리는 너무 JavaScript로 우리를 위해 커리의 작업을 할 수 있습니다.  
+  
+당신이이 일을 할 수있는 감각을주고, 우리가 원하는 커리 기능을 구축하는 데 익숙한 구문을 사용하여 JavaScript에서 우리의 첫 번째 커리 함수를 만들어 보자 . 예를 들어 이름으로 누군가에게 인사 기능을 상상해 봅시다. 우리 모두의 이름과 인사를 취하고 콘솔 이름으로 인사를 기록하고 간단한 인사 함수를 만드는 방법을 알고 있습니다   
+
+```javascript
+var greet = function(greeting, name) {
+  console.log(greeting + ", " + name);
+};
+greet("Hello", "Heidi"); //"Hello, Heidi"
+```
+  
+이것을 커링의 형태로 바꾼다면,...
+  
+```javascript
+var greetCurried = function(greeting) {
+  return function(name) {
+    console.log(greeting + ", " + name);
+  };
+};
+
+var greetHello = greetCurried("Hello");
+greetHello("Heidi"); //"Hello, Heidi"
+greetHello("Eddie"); //"Hello, Eddie"
+```
+  
+```javascript
+var greetDeeplyCurried = function(greeting) {
+  return function(separator) {
+    return function(emphasis) {
+      return function(name) {
+        console.log(greeting + separator + name + emphasis);
+      };
+    };
+  };
+};
+
+var greetAwkwardly = greetDeeplyCurried("Hello")("...")("?");
+greetAwkwardly("Heidi"); //"Hello...Heidi?"
+greetAwkwardly("Eddie"); //"Hello...Eddie?"
+
+var sayHello = greetDeeplyCurried("Hello")(", ");
+sayHello(".")("Heidi"); //"Hello, Heidi."
+sayHello(".")("Eddie"); //"Hello, Eddie."
+
+var askHello = sayHello("?");
+askHello("Heidi"); //"Hello, Heidi?"
+askHello("Eddie"); //"Hello, Eddie?"
+```
+## 전통적인 형태의 커링
+
+당신은 매우 자세한 사용자 정의 함수를 많이 만들 필요가있는 경우 특히이 방법이 얼마나 강력한 볼 수 있습니다. 유일한 문제는 구문입니다. 당신은 이러한 커리 함수를 작성하면 당신이 중첩 함수를 반환 유지하고 괄호의 여러 세트를 필요로하는 새로운 기능 자체의 분리 된 인수를 포함한 각에서 그들을 호출 할 필요가 있습니다. 이것은 성가신 얻을 수 있습니다.
+
+그 문제를 해결하기 위해 다른 방법은 모든 중첩 된 반환하지 않고 작성된 기존 함수의 이름입니다 신속하고 더러운 커리 함수를 작성하는 것입니다. 커리 함수는 함수의 인수 목록을 이끌어 원래 함수의 카레 버전을 반환하기 위해 그들을 사용할 필요가있을 것입니다 :
+  
+```javascript
+var curryIt = function(uncurried) {
+  var parameters = Array.prototype.slice.call(arguments, 1);
+  return function() {
+    return uncurried.apply(this, parameters.concat(
+      Array.prototype.slice.call(arguments, 0)
+    ));
+  };
+};
+```
+이것을 사용하려면, 우리는 우리가 사전 이입을하고 싶은대로 인수의 많은과 함께 임의의 숫자 인수를 취하는 함수의 이름을 전달합니다. 우리가 돌아갈 때 나머지 인수를 기다리고 함수입니다.
+  
+```javascript
+var greeter = function(greeting, separator, emphasis, name) {
+  console.log(greeting + separator + name + emphasis);
+};
+var greetHello = curryIt(greeter, "Hello", ", ", ".");
+greetHello("Heidi"); //"Hello, Heidi."
+greetHello("Eddie"); //"Hello, Eddie."
+```  
+그리고 그냥 예전처럼 우리는 우리의 커리 본래의 기능에서 파생 함수를 작성할 때 사용하는 인수의 수의 점에서 제한되지 않습니다 :  
+```javascript
+var greetGoodbye = curryIt(greeter, "Goodbye", ", ");
+greetGoodbye(".", "Joe"); //"Goodbye, Joe."
+```  
+
+결론은...   
+커리는 기능적인 JavaScript에서 매우 유용한 기술입니다. 당신이 일관되게 행동 사용하기 위해 신속하고 작은 쉽게 설정할 수있는 기능 라이브러리를 생성 할 수 있으며, 당신의 코드를 읽을 때 이해 할 수 있습니다. 당신의 코딩 연습에 커리를 추가하면 잠재적 인 반복을 많이하지 않도록하고 당신의 코드 전체에서 부분적으로 적용되는 기능의 사용을 장려하고, 네이밍 및 함수의 인수를 취급에 관하여 좋은 습관에 당신을 얻을 것을 도울 수 있습니다.
+
+
 # es6에서의 커링
 # 참조 사이트 
 [mdn 클로저](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)  
