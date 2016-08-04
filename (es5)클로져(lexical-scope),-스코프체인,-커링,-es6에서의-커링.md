@@ -180,6 +180,52 @@ console.log(temp2);
 <img  src='https://github.com/otwm/ProReactStudy/blob/master/submission/img/closure2.png?raw=true' 
    width='500' />
 
+그래서,  
+* 클로저는 해당 스코프가 계속 쌓인다.
+* 클로저의 스코프는 함수에 저장된다.
+* dynamic의 경우에는 스코프가 쌓이는 것이 아니라, 지속적으로 교체된다.
+* 변수는 스코프 체인 내에서 로컬 부터 시작해서 글로벌 영역으로 찾게 된다.(체인)
+
+closure3)
+```javascript
+    function makeAdder(x, y) {
+        var adder = function() {
+            return x + y;
+        };
+        x = 10;
+        return adder;
+    }
+
+    var f = makeAdder(2, 3);
+    var result = f();
+    console.log("Result is: " + result);//x의 값은 2인가? 10인가?
+    
+    var g = makeAdder(4, 5);
+    var anotherResult = g();
+    console.log("Another result is: " + anotherResult);//x의 값은 3인가 10인가??
+```
+
+<img src='http://archive.oreilly.com/oreillyschool/courses/advancedjavascript/images/ClosureDiagram3.jpg' width=600 />  
+  
+closure4)  
+```javascript
+    function makeCounter() {
+        var count = 0;
+        return function() {
+            count = count + 1;
+            return count;
+        };
+    }
+
+    var count = makeCounter();
+    console.log("Counter: " + count());
+    console.log("Counter: " + count());
+    console.log("Counter: " + count());
+    console.log("Counter: " + count());
+    console.log("Counter: " + count());
+```
+
+
 # 커링
 # es6에서의 커링
 # 참조 사이트 
