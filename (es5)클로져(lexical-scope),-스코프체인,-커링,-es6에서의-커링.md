@@ -309,7 +309,8 @@ closureExample2.html
 기타 다른 예제도 보면 괜찮을 듯 하네요. [orelly](http://archive.oreilly.com/oreillyschool/courses/advancedjavascript/Closures.html)    
 
 
-# 커링
+# 커링  
+<img src='http://upload.wikimedia.org/wikipedia/commons/1/1e/Indiandishes.jpg' width=500/>
 커링은 무엇일까요?  
   
 쉽게 말하면, 커리 함수의 인수의 부분적인 적용을 가능하게하는 기능을 구축하는 방법입니다. 이것이 의미하는 것은 함수가 기대되는 모든 인수를 전달하고 결과를 얻을 또는 이러한 인수의 부분 집합을 전달하고 나머지 인수를 기다리고 기능을 되 찾을 수있을 것입니다. 정말 간단합니다.  
