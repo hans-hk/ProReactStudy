@@ -402,6 +402,16 @@ greetGoodbye(".", "Joe"); //"Goodbye, Joe."
 
 
 # es6에서의 커링
+[화살표 함수](https://github.com/otwm/ProReactStudy/wiki/%28es6-1%EC%9E%A5%29%EB%AC%B8%EB%B2%95-%EB%A7%9B%EB%B3%B4%EA%B8%B0#%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98)를 통한 커링이 가능해졌다. 마치 하스켈 같은 느낌이랄까??  
+  
+```javascript
+const curring = a => b => c => { return a + b + c };
+console.log( curring(1)(2)(3) ) ;
+```
+
+[currying-in-es6][(https://h3manth.com/new/blog/2015/currying-in-es6/)  
+
+
 # 참조 사이트 
 [mdn 클로저](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)  
 [closure](http://speakingjs.com/es5/ch16.html)  
