@@ -93,3 +93,5 @@ console.log(z);
 # es6에서의 커링
 # 참조 사이트 
 [mdn 클로저](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)
+[closure](http://speakingjs.com/es5/ch16.html)
+[orelly](http://archive.oreilly.com/oreillyschool/courses/advancedjavascript/Closures.html)
