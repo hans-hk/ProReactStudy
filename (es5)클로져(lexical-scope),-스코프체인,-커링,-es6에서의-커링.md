@@ -316,3 +316,5 @@ closureExample2.html
 [closure](http://speakingjs.com/es5/ch16.html)  
 [orelly](http://archive.oreilly.com/oreillyschool/courses/advancedjavascript/Closures.html)  
 [insanehong](http://insanehong.kr/post/javascript-scope/)  
+[sitepoint](https://www.sitepoint.com/currying-in-functional-javascript/)  
+[currying-in-es6](https://h3manth.com/new/blog/2015/currying-in-es6/)
