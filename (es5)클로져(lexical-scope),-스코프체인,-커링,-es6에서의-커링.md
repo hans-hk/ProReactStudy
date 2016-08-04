@@ -310,7 +310,8 @@ closureExample2.html
 
 
 # 커링  
-<img src='http://upload.wikimedia.org/wikipedia/commons/1/1e/Indiandishes.jpg' width=500/>
+<img src='http://upload.wikimedia.org/wikipedia/commons/1/1e/Indiandishes.jpg' width=500/>   
+  
 커링은 무엇일까요?  
   
 쉽게 말하면, 커리 함수의 인수의 부분적인 적용을 가능하게하는 기능을 구축하는 방법입니다. 이것이 의미하는 것은 함수가 기대되는 모든 인수를 전달하고 결과를 얻을 또는 이러한 인수의 부분 집합을 전달하고 나머지 인수를 기다리고 기능을 되 찾을 수있을 것입니다. 정말 간단합니다.  
@@ -363,6 +364,7 @@ var askHello = sayHello("?");
 askHello("Heidi"); //"Hello, Heidi?"
 askHello("Eddie"); //"Hello, Eddie?"
 ```
+
 ## 전통적인 형태의 커링
 
 당신은 매우 자세한 사용자 정의 함수를 많이 만들 필요가있는 경우 특히이 방법이 얼마나 강력한 볼 수 있습니다. 유일한 문제는 구문입니다. 당신은 이러한 커리 함수를 작성하면 당신이 중첩 함수를 반환 유지하고 괄호의 여러 세트를 필요로하는 새로운 기능 자체의 분리 된 인수를 포함한 각에서 그들을 호출 할 필요가 있습니다. 이것은 성가신 얻을 수 있습니다.
