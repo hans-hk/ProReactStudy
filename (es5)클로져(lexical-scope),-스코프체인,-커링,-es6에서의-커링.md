@@ -225,6 +225,83 @@ closure4)
     console.log("Counter: " + count());
 ```
 
+**클로져와 루프**
+closureExample.html  
+```html
+<!doctype html>
+<html>
+<head>
+    <title> Closures for divs </title>
+    <meta charset="utf-8">
+    <style>
+        div {
+            position: relative;
+            margin: 10px;
+            background-color: red;
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var numDivs = 3;
+            for (var i = 0; i < numDivs; i++) {
+                var div = document.getElementById("div" + i);
+                div.onclick = function() {
+                    console.log("You just clicked on div number " + i);
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+<div id="div0"></div>
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>
+```
+  
+closureExample2.html  
+```html
+<!doctype html>
+<html>
+<head>
+    <title> Closures for divs </title>
+    <meta charset="utf-8">
+    <style>
+        div {
+            position: relative;
+            margin: 10px;
+            background-color: red;
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var numDivs = 3;
+            for (var i = 0; i < numDivs; i++) {
+                var div = document.getElementById("div" + i);
+                div.onclick = (function(divNum) {
+                    return function() {
+                        console.log("You just clicked on div number " + divNum);
+                    };
+                })(i);
+            }
+        };
+    </script>
+</head>
+<body>
+<div id="div0"></div>
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>
+```
+
 
 # 커링
 # es6에서의 커링
