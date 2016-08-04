@@ -305,6 +305,8 @@ closureExample2.html
 </html>
 ```
 클로져는 클로져로 해결..   
+  
+기타 다른 예제도 보면 괜찮을 듯 하네요. [orelly](http://archive.oreilly.com/oreillyschool/courses/advancedjavascript/Closures.html)    
 
 
 # 커링
