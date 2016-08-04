@@ -225,8 +225,8 @@ closure4)
     console.log("Counter: " + count());
 ```
 
-**클로져와 루프**
-closureExample.html  
+**클로져와 루프**   
+closureExample.html    
 ```html
 <!doctype html>
 <html>
@@ -262,7 +262,10 @@ closureExample.html
 </body>
 </html>
 ```
-  
+실제로 div를 클릭하게 되면 모두 3이 나온다???   
+<img src='https://pbs.twimg.com/media/Ch5YCHpUUAEIJLo.jpg' />  
+    
+진짜로 우리가 원하는 건 이것!  
 closureExample2.html  
 ```html
 <!doctype html>
@@ -301,6 +304,7 @@ closureExample2.html
 </body>
 </html>
 ```
+클로져는 클로져로 해결..   
 
 
 # 커링
