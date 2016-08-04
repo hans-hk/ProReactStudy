@@ -89,6 +89,50 @@ console.log(z);
 ```
 
 ![scope chain](http://insanehong.kr/post/javascript-scope/@img/diagram1.jpeg)
+
+### lexical과 dynamic
+#### Dynamic dimension
+매 함수 호출 시 새로운 스코프가 생성된다. 스코프 체인에는 스코프 쌓이지 않고 계속 교체된다.
+```javascript
+function g() {
+}
+function f() {
+    g();
+}
+```
+#### Lexical dimension
+```javascript
+function myFunction(myParam) {
+    var myVar = 123;
+    return myFloat;
+}
+var myFloat = 1.3;
+// Step 1
+myFunction('abc');  // Step 2
+```
+
+<img src='http://speakingjs.com/es5/images/spjs_2001.png' width=500/>
+
+### example
+closure1)  
+```javascript
+    function makeAdder(x, y) {
+        var adder = function() {
+            return x + y;
+        };
+
+        return adder;
+    }
+
+    var f = makeAdder(2, 3);
+    var result = f();
+    console.log("Result is: " + result);     
+```
+
+
+dynamic)
+
+
 # 커링
 # es6에서의 커링
 # 참조 사이트 
