@@ -7,7 +7,7 @@ Welcome to the Pro React Study wiki!
 * [[(pro react) 2장]]
 * [[(pro react) 3장]]
 * [[(pro react) 4장]]
-* 5장  
+* [[(pro react) 5장]]
 * 6장
 * 7장
 * 8장
