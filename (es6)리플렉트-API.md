@@ -33,6 +33,7 @@ _경험 상 실제로 많이 쓰이지는 않습니다만,(지극히 개인적�
   
 ### SynTax
 > Reflect.apply(target, thisArgument, argumentsList)
+   
 ### Parameters
 target 
 대상  
@@ -67,6 +68,8 @@ Reflect.apply(RegExp.prototype.exec, /ab/, ["confabulation"]).index;
 Reflect.apply("".charAt, "ponies", [3]);
 // "i"
 ```
+  
+_사실 생각보다는 자주 씁니다._
 
 ## Reflect.construct
 함수를 생성. 다른 생성자의 프로토타입을 매치 할 수 있다.  
@@ -114,8 +117,10 @@ var result = Reflect.construct(Array, [], someConstructor);
 Reflect.getPrototypeOf(result); // someConstructor.prototype
 Array.isArray(result); // true
 ```
-
+_새로운 생성자 설정은 꽤 유용할지도?? 하지만, 무언가 많이 혼란스러울 수도 있겠네요._   
+  
 ## Reflect.defineProperty
+
 ## Reflect.deleteProperty
 ## Reflect.enumerate(**현재는 스펙에서 삭제 되었습니다!**)
 설명 패스!!
