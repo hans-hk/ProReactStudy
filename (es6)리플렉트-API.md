@@ -342,12 +342,233 @@ Object.getOwnPropertyDescriptor("foo", 0);
 ```
   
 ## Reflect.getPrototypeOf  
+프로토타입 조회  
+  
+### SynTax
+> Reflect.getPrototypeOf(target)  
+     
+### Parameters
+target 
+대상  
 
+### Return value
+주어진 객체의 프로토타입 없다면, null
+  
+### Exceptions
+대상이 객체가 아니면, 타입에러  
+  
+### Example
+```javascript
+var obj3 = {
+  __proto__:{
+    name: "do"
+  }
+}
+
+var obj31 = Reflect.getPrototypeOf(obj3);
+console.log(obj31);
+console.log(obj31.name);
+
+Reflect.getPrototypeOf({}); // Object.prototype
+Reflect.getPrototypeOf(Object.prototype); // null
+Reflect.getPrototypeOf(Object.create(null)); // null
+```
+  
 ## Reflect.has
+프로퍼티 존재 여부 확인   
+   
+### SynTax
+> Reflect.has(target, propertyKey)   
+    
+### Parameters
+target 
+대상  
+
+propertyKey  
+프로퍼티 명칭  
+       
+### Return value
+존재여부(true/false)
+  
+### Exceptions
+대상이 객체가 아니면, 타입에러  
+  
+### Example
+```javascript
+var obj = {
+  __proto__:{
+    name: "do"
+  },
+  age: 12
+}
+
+console.log(Reflect.has(obj,'name'));
+console.log(Reflect.has(obj,'age'));
+
+Reflect.has({x: 0}, "x"); // true
+Reflect.has({x: 0}, "y"); // false
+
+// returns true for properties in the prototype chain 
+Reflect.has({x: 0}, "toString");
+
+// Proxy with .has() handler method
+obj = new Proxy({}, {
+  has(t, k) { return k.startsWith("door"); }
+});
+Reflect.has(obj, "doorbell"); // true
+Reflect.has(obj, "dormitory"); // false
+
+```
+  
 ## Reflect.isExtensible
+확장가능 객체인지 확인   
+Object.preventExtensions(), Object.freeze(),Object.seal() 로 메서드를 확장 할 수 없게 할 수 있다.  
+Object.isExtensible랑 같다.   
+    
+### SynTax
+> Reflect.isExtensible(target)  
+   
+### Parameters
+target 
+대상  
+
+### Return value
+확장 가능 여부(true/false)    
+  
+### Exceptions
+대상이 객체가 아니면, 타입에러  
+  
+### Example
+```javascript
+// New objects are extensible. 
+var empty = {};
+Reflect.isExtensible(empty); // === true 
+
+// ...but that can be changed. 
+Reflect.preventExtensions(empty); 
+Reflect.isExtensible(empty); // === false 
+
+// Sealed objects are by definition non-extensible. 
+var sealed = Object.seal({}); 
+Reflect.isExtensible(sealed); // === false 
+
+// Frozen objects are also by definition non-extensible. 
+var frozen = Object.freeze({}); 
+Reflect.isExtensible(frozen); // === false
+```
+  
 ## Reflect.ownKeys
+프로퍼티 키를 원소로 담는 배열 반환(상속이 아닌)  
+  
+### SynTax
+> Reflect.ownKeys(target)  
+   
+### Parameters
+target 
+대상  
+  
+### Return value
+대상 객체의 프로퍼티 키 배열  
+  
+### Exceptions
+대상이 객체가 아니면, 타입에러  
+  
+### Example
+```javascript
+Reflect.ownKeys({z: 3, y: 2, x: 1}); // [ "z", "y", "x" ]
+Reflect.ownKeys([]); // ["length"]
+
+var sym = Symbol.for("comet");
+var sym2 = Symbol.for("meteor");
+var obj = {[sym]: 0, "str": 0, "773": 0, "0": 0,
+           [sym2]: 0, "-1": 0, "8": 0, "second str": 0};
+Reflect.ownKeys(obj);
+// [ "0", "8", "773", "str", "-1", "second str", Symbol(comet), Symbol(meteor) ]
+// Indexes in numeric order, 
+// strings in insertion order, 
+// symbols in insertion order
+```
+
 ## Reflect.preventExtensions
+객체 확장을 제한   
+
+### SynTax
+> Reflect.preventExtensions(target)  
+   
+### Parameters
+target 
+대상  
+  
+### Return value
+결과(true/false)  
+   
+### Exceptions
+대상이 객체가 아니면, 타입에러  
+  
+### Example
+```javascript
+// Objects are extensible by default.
+var empty = {};
+Reflect.isExtensible(empty); // === true
+
+// ...but that can be changed.
+Reflect.preventExtensions(empty);
+Reflect.isExtensible(empty); // === false
+
+Reflect.preventExtensions(1);
+// TypeError: 1 is not an object
+
+Object.preventExtensions(1);
+// 1
+```
+  
 ## Reflect.set
+프로퍼티 set   
+   
+### SynTax
+> Reflect.set(target, propertyKey, value[, receiver])   
+   
+### Parameters
+target 
+대상  
+
+propertyKey  
+프로퍼티 명칭  
+  
+value  
+셋팅 값  
+       
+receiver(optional)   
+setter가 호출될 때 제공되는 함수      
+   
+### Return value
+결과(true/false)
+  
+### Exceptions
+대상이 객체가 아니면, 타입에러    
+  
+### Example
+```javascript
+var obj99 = {};
+Reflect.set(obj99, "prop", "value"); // true
+console.log(`obj99.prop : ${obj99.prop}`); // "value"
+
+// Array
+var arr = ["duck", "duck", "duck"];
+Reflect.set(arr, 2, "goose"); // true
+arr[2]; // "goose"
+
+// It can truncate an array.
+Reflect.set(arr, "length", 1); // true
+arr; // ["duck"];
+
+// With just one argument, propertyKey and value are "undefined".
+var obj = {};
+Reflect.set(obj); // true
+Reflect.getOwnPropertyDescriptor(obj, "undefined");
+// { value: undefined, writable: true, enumerable: true, configurable: true }
+```
+  
 ## Reflect.setPrototypeOf
 
 
