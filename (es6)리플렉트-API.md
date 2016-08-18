@@ -250,6 +250,7 @@ Reflect.deleteProperty({}, "foo"); // true
 // Returns false if a property is unconfigurable
 Reflect.deleteProperty(Object.freeze({foo: 1}), "foo"); // false
 ```
+[freeze](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)   
 _차라리 delete가 낮지 않을까요?_  
   
 ## Reflect.enumerate(**현재는 스펙에서 삭제 되었습니다!**) 
