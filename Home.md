@@ -8,10 +8,10 @@ Welcome to the Pro React Study wiki!
 * [[(pro react) 3장]]
 * [[(pro react) 4장]]
 * [[(pro react) 5장]]
-* 6장
-* 7장
-* 8장
-* 9장
+* [[(pro react) 6장]]
+* [[(pro react) 7장]]
+* [[(pro react) 8장]]
+* [[(pro react) 9장]]
 
 ## Submission
 * [[환경설정하기]]
