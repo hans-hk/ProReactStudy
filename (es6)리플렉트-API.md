@@ -45,6 +45,9 @@ thisArgument
 argumentsList  
 아규먼트 배열  
   
+### Return value
+호출 결과  
+  
 ### Exceptions
 대상이 호출 불가능할 때
 
