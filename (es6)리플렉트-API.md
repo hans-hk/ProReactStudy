@@ -27,6 +27,25 @@
   
 _경험 상 실제로 많이 쓰이지는 않습니다만,(지극히 개인적인 견해?) 그래도 가끔씩 사용해 먹을 때가 있긴 합니다.(core 코드 작성할 때?) 가벼운 마음으로 보고 상큼하게 잊어 먹읍시다 :) (**정말로 지극히 개인적인 견해**)_
 
+# API
+## Reflect.apply
+## Reflect.construct
+## Reflect.defineProperty
+## Reflect.deleteProperty
+## Reflect.enumerate(**현재는 스펙에서 삭제 되었습니다!**)
+설명 패스!!
+## Reflect.get
+## Reflect.getOwnPropertyDescriptor
+## Reflect.getPrototypeOf
+## Reflect.has
+## Reflect.isExtensible
+## Reflect.ownKeys
+## Reflect.ownKeys
+## Reflect.ownKeys
+## Reflect.ownKeys
+## Reflect.ownKeys
+
+
 # 참조
 * [MDN reflect api](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
 * [Reflect1](http://codepen.io/otwm/pen/YWgAYP)
