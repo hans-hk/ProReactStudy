@@ -24,6 +24,8 @@
 | Reflect.preventExtensions()| 객체 확장을 제한 | Object.preventExtensions()|
 | Reflect.set()| 프로퍼티 set | |
 | Reflect.setPrototypeOf()| 프로타입 값을 지정 | |
+  
+_경험 상 실제로 많이 쓰이지는 않습니다만,(지극히 개인적인 견해?) 그래도 가끔씩 사용해 먹을 때가 있긴 합니다.(core 코드 작성할 때?) 가벼운 마음으로 보고 상큼하게 잊어 먹읍시다 :) (**정말로 지극히 개인적인 견해**)_
 
 # 참조
 * [MDN reflect api](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
