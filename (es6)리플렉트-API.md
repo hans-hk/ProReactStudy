@@ -25,7 +25,8 @@
 | Reflect.set()| 프로퍼티 set | |
 | Reflect.setPrototypeOf()| 프로타입 값을 지정 | |
   
-_경험 상 실제로 많이 쓰이지는 않습니다만,(지극히 개인적인 견해?) 그래도 가끔씩 사용해 먹을 때가 있긴 합니다.(core 코드 작성할 때?) 가벼운 마음으로 보고 상큼하게 잊어 먹읍시다 :) (**정말로 지극히 개인적인 견해**)_
+_경험 상 실제로 많이 쓰이지는 않습니다만,(지극히 개인적인 견해?) 그래도 가끔씩 사용해 먹을 때가 있긴 합니다.(core 코드 작성할 때?) 가벼운 마음으로 보고 상큼하게 잊어 먹읍시다 :)_    
+_(**정말로 지극히 개인적인 견해**)_   
 
 # API
 ## Reflect.apply
@@ -120,6 +121,59 @@ Array.isArray(result); // true
 _새로운 생성자 설정은 꽤 유용할지도?? 하지만, 무언가 많이 혼란스러울 수도 있겠네요._   
   
 ## Reflect.defineProperty
+객체에 새 프로퍼티 추가 또는 수정  
+   
+### SynTax
+> Reflect.defineProperty(target, propertyKey, attributes)  
+    
+### Parameters
+target 
+대상  
+
+propertyKey  
+프로퍼티 명칭  
+    
+descriptor  
+프로퍼티 서술 객체   
+  
+### Return value
+성공여부(true/false)  
+  
+### Exceptions
+대상이나 객체가 아니면 타입에러  
+  
+### Example
+```javascript
+var myObj = {}
+Reflect.defineProperty(obj, "name", {
+  value: "do",
+  writable: true,
+  configurable: true,
+  enumerable: true
+});
+
+console.log(`Reflect.defineProperty : ${obj.name}`);
+
+var myObj2 = {
+  __name__: "do"
+}
+
+Reflect.defineProperty(myObj2, "name", {
+  get: function(){
+    return this.__name__;
+  },
+  set: function(newName){
+    this.__name__ = newName;
+  },
+  configurable: true,
+  enumerable:true
+})
+
+myObj2.name = "kdo";
+console.log(`Reflect.defineProperty : ${myObj2.name}`);
+
+
+```
 
 ## Reflect.deleteProperty
 ## Reflect.enumerate(**현재는 스펙에서 삭제 되었습니다!**)
