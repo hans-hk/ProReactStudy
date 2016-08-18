@@ -47,9 +47,74 @@ argumentsList
 대상이 호출 불가능할 때
 
 ### Example
+```javascript
+function myFunc(a,b,c){
+  return this.value + a + b + c;
+}
 
+var value = Reflect.apply( myFunc ,{value:100} ,[10,20,30]);
+console.log(`Reflect.apply : ${value}`);
+
+Reflect.apply(Math.floor, undefined, [1.75]); 
+// 1;
+
+Reflect.apply(String.fromCharCode, undefined, [104, 101, 108, 108, 111]);
+// "hello"
+
+Reflect.apply(RegExp.prototype.exec, /ab/, ["confabulation"]).index;
+// 4
+
+Reflect.apply("".charAt, "ponies", [3]);
+// "i"
+```
 
 ## Reflect.construct
+함수를 생성. 다른 생성자의 프로토타입을 매치 할 수 있다.  
+  
+### SynTax
+> Reflect.construct(target, argumentsList[, newTarget])
+   
+### Parameters
+target 
+대상  
+
+argumentsList  
+아규먼트 배열  
+    
+newTarget(optional)   
+프로타입으로 사용될 생성자   
+  
+### Exceptions
+대상이나 새로운 대상이 생성자가 아니면, 타입에러  
+  
+### Example
+```javascript
+function constructor(a, b){
+  this.a = a;
+  this.b = b;
+  
+  this.f = function(){
+    return this.a + this.b + this.c;
+  }
+}
+
+function constructor2(){}
+constructor2.prototype.c = 100;
+
+var obj = Reflect.construct(constructor, [1,2], constructor2);
+console.log(`Reflect.construct : ${obj.f()}`)
+ 
+var d = Reflect.construct(Date, [1776, 6, 4]);
+d instanceof Date; // true
+d.getFullYear(); // 1776
+
+function someConstructor() {}
+var result = Reflect.construct(Array, [], someConstructor);
+
+Reflect.getPrototypeOf(result); // someConstructor.prototype
+Array.isArray(result); // true
+```
+
 ## Reflect.defineProperty
 ## Reflect.deleteProperty
 ## Reflect.enumerate(**현재는 스펙에서 삭제 되었습니다!**)
