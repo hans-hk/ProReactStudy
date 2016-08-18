@@ -429,7 +429,7 @@ Reflect.has(obj, "dormitory"); // false
   
 ## Reflect.isExtensible
 확장가능 객체인지 확인   
-Object.preventExtensions(), Object.freeze(),Object.seal() 로 메서드를 확장 할 수 없게 할 수 있다.  
+Object.preventExtensions(), Object.freeze(),[Object.seal()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/seal) 로 메서드를 확장 할 수 없게 할 수 있다.  
 Object.isExtensible랑 같다.   
     
 ### SynTax
