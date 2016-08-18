@@ -91,6 +91,9 @@ argumentsList
 newTarget(optional)   
 프로타입으로 사용될 생성자   
   
+### Return value
+결과  
+  
 ### Exceptions
 대상이나 새로운 대상이 생성자가 아니면, 타입에러  
   
