@@ -203,12 +203,145 @@ _뭔가 있어보이지만, 실제로 apply가 더 많이 쓴다._
 ## Reflect.deleteProperty
 프로퍼티 삭제  
   
+### SynTax
+> Reflect.deleteProperty(target, propertyKey)   
+   
+### Parameters
+target 
+대상  
 
-## Reflect.enumerate(**현재는 스펙에서 삭제 되었습니다!**)
-설명 패스!!
-## Reflect.get
+propertyKey  
+프로퍼티 명칭  
+    
+### Return value    
+성공여부(true/false)  
+     
+### Exceptions
+대상이나 객체가 아니면, 타입에러  
+  
+### Example
+```javascript
+var myObj3 = {
+  name: "kdo"
+}
+
+console.log(myObj3.name)
+Reflect.deleteProperty(myObj3, "name");
+console.log(`Reflect.deleteProperty : ${myObj3.name}`);
+
+var obj = { x: 1, y: 2 };
+Reflect.deleteProperty(obj, "x"); // true
+obj; // { y: 2 }
+
+var arr = [1, 2, 3, 4, 5];
+Reflect.deleteProperty(arr, "3"); // true
+arr; // [1, 2, 3, , 5]
+
+// Returns true if no such property exists
+Reflect.deleteProperty({}, "foo"); // true
+
+// Returns false if a property is unconfigurable
+Reflect.deleteProperty(Object.freeze({foo: 1}), "foo"); // false
+```
+_차라리 delete가 낮지 않을까요?_  
+  
+## Reflect.enumerate(**현재는 스펙에서 삭제 되었습니다!**) 
+설명 패스!!  
+  
+## Reflect.get   
+객체 프로퍼티 조회  
+  
+### SynTax
+> Reflect.get(target, propertyKey[, receiver])  
+   
+### Parameters
+target 
+대상  
+
+propertyKey  
+프로퍼티 명칭  
+      
+receiver(optional)   
+getter가 호출될 때 제공되는 함수     
+   
+### Return value    
+프로퍼티 값   
+   
+### Exceptions
+대상이 객체가 아니면, 타입에러  
+  
+### Example
+```javascript
+var obj = {
+  __name__:"kdo"
+}
+
+Reflect.defineProperty(obj,"name",{
+  get: function(){
+    return this.__name__;
+  }
+});
+
+console.log(`Reflect.get : ${obj.name}`);
+
+var name = Reflect.get(obj, "name", {__name__:"do"});
+
+console.log(`Reflect.get : ${name}`);
+
+// Object
+var obj = { x: 1, y: 2 };
+Reflect.get(obj, "x"); // 1
+
+// Array
+Reflect.get(["zero", "one"], 1); // "one"
+
+// Proxy with a get handler
+var x = {p: 1};
+var obj = new Proxy(x, {
+  get(t, k, r) { return k + "bar"; }
+});
+Reflect.get(obj, "foo"); // "foobar"
+  
+```
+  
 ## Reflect.getOwnPropertyDescriptor
-## Reflect.getPrototypeOf
+프로퍼티 서술자(descriptor)를 조회한다.  
+  
+### SynTax
+> Reflect.getOwnPropertyDescriptor(target, propertyKey)
+   
+### Parameters
+target 
+대상  
+
+propertyKey  
+프로퍼티 명칭  
+       
+### Exceptions
+대상이나 새로운 대상이 생성자가 아니면, 타입에러  
+  
+### Example
+```javascript
+var obj = {
+  name : "kdo"
+}
+
+var descriptor = Reflect.getOwnPropertyDescriptor( obj, "name");
+console.log(descriptor);
+
+Reflect.getOwnPropertyDescriptor([], "length");
+// {value: 0, writable: true, enumerable: false, configurable: false}
+
+Reflect.getOwnPropertyDescriptor("foo", 0);
+// TypeError: "foo" is not non-null object
+
+Object.getOwnPropertyDescriptor("foo", 0);
+// { value: "f", writable: false, enumerable: true, configurable: false }
+
+```
+  
+## Reflect.getPrototypeOf  
+
 ## Reflect.has
 ## Reflect.isExtensible
 ## Reflect.ownKeys
