@@ -131,6 +131,7 @@ _새로운 생성자 설정은 꽤 유용할지도?? 하지만, 무언가 많이
 * writable : 쓰기(할당)가능. 기본은 false
 * enumerable : 열거(for...in 루프, Object.keys() 등에서) 가능. 기본은 false
 * configurable : 속성 변경/삭제 가능. 기본은 false
+  
 #### 접근자 프로퍼티 서술자
 * set : 프로퍼티 값을 지정하는 함수.
 * get : 프로퍼티의 값을 반환하는 함수.
