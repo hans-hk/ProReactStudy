@@ -122,6 +122,24 @@ _새로운 생성자 설정은 꽤 유용할지도?? 하지만, 무언가 많이
   
 ## Reflect.defineProperty
 객체에 새 프로퍼티 추가 또는 수정  
+반환 값이 실패 여부라는 데이서 Object.defineProperty과는 차이가 있다.Object.defineProperty는 실패하면 throw하며, 반환은 수정된 결과를 반환 한다. 이렇듯 ES5와는 이러한 미세한 차이를 가진다.  
+   
+> es5 부터 모든 객체의 프로퍼티는 데이터 프로퍼티, 접근자 프로퍼티 둘 중 하나다. 데이터 프로퍼티는 쓰기 가능 또는 불가 상태의 값을 가지는 반면, 접근자 프로퍼티는 프로퍼티 값을 조회.지정하는 함수의 게터-세터 쌍을 가진다. 이러한 데이터 프로퍼티 속성으로는 value, writable, enumerable, configurable이 있고, 접근자 프로퍼티 속성으로는 set, get, enumerable, configurable이 있다.  
+  
+#### 데이터 프로퍼티 서술자
+* value : 프로퍼티 값. 기본은 undefined
+* writable : 쓰기(할당)가능. 기본은 false
+* enumerable : 열거(for...in 루프, Object.keys() 등에서) 가능. 기본은 false
+* configurable : 속성 변경/삭제 가능. 기본은 false
+#### 접근자 프로퍼티 서술자
+* set : 프로퍼티 값을 지정하는 함수.
+* get : 프로퍼티의 값을 반환하는 함수.
+* enumerable : 열거(for...in 루프, Object.keys() 등에서) 가능. 기본은 false
+* configurable : 속성 변경/삭제 가능. 기본은 false
+   
+> 자바스크립트 엔진은 서술자를 보고 데이터 프로퍼티인지, 접근자 프로퍼티인지 판단한다. Reflect.defineProperty, Object.defineProperty, Object.defineProperties, Object.create를 쓰지 않고 추가한 프로퍼티는 writable,enumerable,configurable 속성이 모두 true로 설정된다. 물론, 이후 변경이 가능하다.    
+  
+> Reflect.defineProperty, Object.defineProperty, Object.defineProperties 호출 시 이미 객체에 동일한 이름의 프로퍼티가 있다면 해당 프로퍼티를 덥어쓴다. 서술자에 따로 지정하지 않은 속성은 유지된다. 데이터/접근자 프로퍼티는 상호 변환이 가능한데, 변환하게 되면 서술자에 지정하지 않은 enumerable, configurable속성은 보존되지만 다른 송성은 기본 값으로 설정된다.  
    
 ### SynTax
 > Reflect.defineProperty(target, propertyKey, attributes)  
@@ -172,10 +190,20 @@ Reflect.defineProperty(myObj2, "name", {
 myObj2.name = "kdo";
 console.log(`Reflect.defineProperty : ${myObj2.name}`);
 
-
+//체크
+if (Reflect.defineProperty(target, property, attributes)) {
+  // success
+} else {
+  // failure
+}
 ```
-
+  
+_뭔가 있어보이지만, 실제로 apply가 더 많이 쓴다._  
+  
 ## Reflect.deleteProperty
+프로퍼티 삭제  
+  
+
 ## Reflect.enumerate(**현재는 스펙에서 삭제 되었습니다!**)
 설명 패스!!
 ## Reflect.get
