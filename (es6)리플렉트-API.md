@@ -570,7 +570,39 @@ Reflect.getOwnPropertyDescriptor(obj, "undefined");
 ```
   
 ## Reflect.setPrototypeOf
+프로토타입 값을 지정  
+  
+### SynTax
+> Reflect.setPrototypeOf(target, prototype)
+   
+### Parameters
+target 
+대상  
 
+prototype  
+새로운 프로토타입    
+    
+### Return value   
+결과(true/false)  
+    
+### Exceptions
+대상과 프로토타입이 객체가 아니면, 타입에러  
+  
+### Example
+```javascript
+Reflect.setPrototypeOf({}, Object.prototype); // true
+
+// It can change an object's [[Prototype]] to null.
+Reflect.setPrototypeOf({}, null); // true
+
+// Returns false if target is not extensible.
+Reflect.setPrototypeOf(Object.freeze({}), null); // false
+
+// Returns false if it cause a prototype chain cycle.
+var target = {};
+var proto = Object.create(target);
+Reflect.setPrototypeOf(target, proto); // false
+```
 
 # 참조
 * [MDN reflect api](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
