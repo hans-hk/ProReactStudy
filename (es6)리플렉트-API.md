@@ -29,6 +29,26 @@ _경험 상 실제로 많이 쓰이지는 않습니다만,(지극히 개인적�
 
 # API
 ## Reflect.apply
+주어진 this값으로 타겟 함수 호출
+  
+### SynTax
+> Reflect.apply(target, thisArgument, argumentsList)
+### Parameters
+target 
+대상  
+  
+thisArgument  
+제공될 this  
+  
+argumentsList  
+아규먼트 배열  
+  
+### Exceptions
+대상이 호출 불가능할 때
+
+### Example
+
+
 ## Reflect.construct
 ## Reflect.defineProperty
 ## Reflect.deleteProperty
@@ -40,10 +60,9 @@ _경험 상 실제로 많이 쓰이지는 않습니다만,(지극히 개인적�
 ## Reflect.has
 ## Reflect.isExtensible
 ## Reflect.ownKeys
-## Reflect.ownKeys
-## Reflect.ownKeys
-## Reflect.ownKeys
-## Reflect.ownKeys
+## Reflect.preventExtensions
+## Reflect.set
+## Reflect.setPrototypeOf
 
 
 # 참조
