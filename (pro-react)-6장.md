@@ -36,8 +36,13 @@ _책의 그림을 한번 다시 보자._
 [event emitter](http://haruair.com/blog/3396)
 EventEmitter는 Node.JS에 내장되어 있는 일종의 옵저버 패턴 구현이다. 
 
-# Flux Util
+## 실용성 없는 최소 플럭스 앱
+책 참조(비지니스 로직)   
+git hub 참조(코드)   
 
+# Flux Util
+2.1 버전 이후, 몇몇 유틸리티가 추가되었다.(개발 시 반복되는 작업을 줄일 수 잇음.)  
+  
 ## Store
 
 *   flux 기본 Store 구조 구현
@@ -117,3 +122,5 @@ EventEmitter는 Node.JS에 내장되어 있는 일종의 옵저버 패턴 구현
 
 </div>
 
+**흠, Flux랑 Redux와의 차이는 무엇일까요??**  
+**Redux vs Flux 장단점은 무엇일까요??**  
