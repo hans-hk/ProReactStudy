@@ -33,17 +33,18 @@ _개인적으로는 책에서의 그림 설명이 더 좋다고 생각한다.(�
 * 여러 Store 사이의 순서를 제어.
 _책의 그림을 한번 다시 보자._
 
+[event emitter](http://haruair.com/blog/3396)
+EventEmitter는 Node.JS에 내장되어 있는 일종의 옵저버 패턴 구현이다. 
 
+# Flux Util
 
-# [](#flux-util)Flux Util
-
-## [](#store-1)Store
+## Store
 
 *   flux 기본 Store 구조 구현
 *   EventEmitter 내장.
 *   __onDispatch 함수 구현을 통해 Dispatcher 등록.
 
-## [](#reduce-store)Reduce Store
+## Reduce Store
 
 *   특별한 종류의 Store
 *   reduce 라는 함수를 통해 현재의 State 를 재구성
@@ -53,7 +54,7 @@ _책의 그림을 한번 다시 보자._
     *   Object primitive (ex { name : "sshyun", age : "38"})
     *   React immutable helper들을 사용하여 만든 중첩 Object.
 
-## [](#map-store)Map Store
+## Map Store
 
 *   ReduceStore 의 변종.
 *   Single Value 대신 key / value Store 를 지원.
