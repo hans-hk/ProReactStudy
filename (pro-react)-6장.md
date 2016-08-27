@@ -125,3 +125,5 @@ git hub 참조(코드)
 **흠, Flux랑 Redux와의 차이는 무엇일까요??**  
 **Redux vs Flux 장단점은 무엇일까요??**  
 **Redux나 Flux를 React가 아닌 다른 데에서도 효율적으로 잘 쓸수 있을까요??**   
+
+[event emitter](https://github.com/facebook/emitter)
