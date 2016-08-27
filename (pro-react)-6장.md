@@ -127,3 +127,4 @@ git hub 참조(코드)
 **Redux나 Flux를 React가 아닌 다른 데에서도 효율적으로 잘 쓸수 있을까요??**   
 
 [event emitter](https://github.com/facebook/emitter)
+[dispatcher](https://facebook.github.io/flux/docs/dispatcher.html)
