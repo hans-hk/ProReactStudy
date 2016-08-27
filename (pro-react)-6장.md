@@ -478,53 +478,140 @@ const AppContainer = Container.create(App);
 render(<AppContainer/>, document.getElementById("root"));
 ```
 
-# [](#asynchronous-flux)Asynchronous Flux
+# Asynchronous Flux
+```javascript
+import AppDispatcher from './AppDispatcher';
+import BankBalanceStore from './BankBalanceStore';
+import  bankConstants from './constants';
+import {ReduceStore} from 'flux/utils';
 
-*   React에서는 Ajax 처리와 같은 비동기 처리를 Dispatcher 에 waitFor 함수를 사용해서 실행 순서를 보장한다.
+/**
+ * 리워드 스토어
+ */
+class BankRewardsStore extends ReduceStore {
+    /**
+     * 초기 상태
+     * @returns {string}
+     */
+    getInitialState() {
+        return '흙수저';
+    }
 
-<div class="highlight highlight-source-js">
+    /**
+     * 리듀스
+     * @param state 이전 상태
+     * @param action 액션
+     * @returns {*} 이후 상태
+     */
+    reduce(state, action) {
+        /**
+         * 이렇게 되면 의존 적이 된다.
+         */
+        this.getDispatcher().waitFor([
+            BankBalanceStore.getDispatchToken()
+        ]);
+        if (action.type === bankConstants.DEPOSITED_INTO_ACCOUNT
+            || action.type === bankConstants.WITHDREW_FROM_ACCOUNT
+        ) {
+            let balance = BankBalanceStore.getState();
+            if (balance < 0) {
+                return '막장';
+            }
+            if (balance < 5000) {
+                return '흙수저';
+            } else if (balance < 10000) {
+                return '동수저';
+            } else if (balance < 50000) {
+                return '은수저';
+            } else {
+                return '금수저';
+            }
+        }
+        return state;
+    }
+}
 
-<pre><span class="pl-k">var</span> flightDispatcher <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Dispatcher</span>();
+export default new BankRewardsStore(AppDispatcher);
+```
+  
+```javascript
+import React, {Component} from 'react';
+import {render} from 'react-dom';
+import {Container} from 'flux/utils'
+import BankBalanceStore from './BankBalanceStore';
+import BankRewardsStore from './BankRewardsStore';
+import BankActions from './BankActions';
 
-<span class="pl-c">// Keeps track of which country is selected</span>
-<span class="pl-k">var</span> CountryStore <span class="pl-k">=</span> {country<span class="pl-k">:</span> <span class="pl-c1">null</span>};
+/**
+ * app 컴포넌트
+ */
+class App extends Component {
+    /**
+     * 생성자
+     * 초기 계정을 설정 한다.
+     * 별도의 상태 설정은 없다.
+     */
+    constructor() {
+        super(...arguments);
+        BankActions.createAccount();
+    }
 
-<span class="pl-c">// Keeps track of which city is selected</span>
-<span class="pl-k">var</span> CityStore <span class="pl-k">=</span> {city<span class="pl-k">:</span> <span class="pl-c1">null</span>};
+    /**
+     * 입금.
+     * 초기화
+     */
+    deposit() {
+        BankActions.depositIntoAccount(Number(this.refs.amount.value));
+        this.refs.amount.value = '';//refs 값을 이용하여 초기화 한다!
+    }
 
-<span class="pl-c">// Keeps track of the base flight price of the selected city</span>
-<span class="pl-k">var</span> FlightPriceStore <span class="pl-k">=</span> {price<span class="pl-k">:</span> <span class="pl-c1">null</span>};
+    /**
+     * 출금.
+     * 초기화
+     */
+    withdraw() {
+        BankActions.withdrawFromAccount(Number(this.refs.amount.value));
+        this.refs.amount.value = '';
+    }
 
-<span class="pl-smi">CountryStore</span>.<span class="pl-smi">dispatchToken</span> <span class="pl-k">=</span> <span class="pl-smi">flightDispatcher</span>.<span class="pl-en">register</span>(<span class="pl-k">function</span>(<span class="pl-smi">payload</span>) {
-  <span class="pl-k">if</span> (<span class="pl-smi">payload</span>.<span class="pl-smi">actionType</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">'</span>country-update<span class="pl-pds">'</span></span>) {
-    <span class="pl-smi">CountryStore</span>.<span class="pl-smi">country</span> <span class="pl-k">=</span> <span class="pl-smi">payload</span>.<span class="pl-smi">selectedCountry</span>;
-  }
+    render() {
+        return (
+            <div>
+                <header>Flux bank</header>
+                <h1>금액 ${(this.state.balance).toFixed(2)}</h1>
+                <h2>너는 {this.state.tier}</h2>
+                <div className="atm">
+                    <input type="text" placeholder="금액" ref="amount"/>
+                    <br/>
+                    <button onClick={this.withdraw.bind(this)}>출금</button>
+                    <button onClick={this.deposit.bind(this)}>입금</button>
+                </div>
+            </div>
+        );
+    }
+}
+
+/**
+ * 스토어 등록
+ */
+App.getStores = () => ([BankBalanceStore, BankRewardsStore]);
+/**
+ * 상태 가져오기
+ * @param prevState
+ */
+App.calculateState = (prevState) => ({
+    balance: BankBalanceStore.getState(),
+    tier: BankRewardsStore.getState()
 });
+/**
+ * 컨테이너 랩핑
+ * @type {App}
+ */
+const AppContainer = Container.create(App);
 
-<span class="pl-smi">CityStore</span>.<span class="pl-smi">dispatchToken</span> <span class="pl-k">=</span> <span class="pl-smi">flightDispatcher</span>.<span class="pl-en">register</span>(<span class="pl-k">function</span>(<span class="pl-smi">payload</span>) {
-  <span class="pl-k">if</span> (<span class="pl-smi">payload</span>.<span class="pl-smi">actionType</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">'</span>country-update<span class="pl-pds">'</span></span>) {
-    <span class="pl-c">// `CountryStore.country` may not be updated.</span>
-    <span class="pl-smi">flightDispatcher</span>.<span class="pl-en">waitFor</span>([<span class="pl-smi">CountryStore</span>.<span class="pl-smi">dispatchToken</span>]);
-    <span class="pl-c">// `CountryStore.country` is now guaranteed to be updated.</span>
+render(<AppContainer/>, document.getElementById("root"));
+```
 
-    <span class="pl-c">// Select the default city for the new country</span>
-    <span class="pl-smi">CityStore</span>.<span class="pl-smi">city</span> <span class="pl-k">=</span> <span class="pl-en">getDefaultCityForCountry</span>(<span class="pl-smi">CountryStore</span>.<span class="pl-smi">country</span>);
-  }
-});
-
-<span class="pl-smi">FlightPriceStore</span>.<span class="pl-smi">dispatchToken</span> <span class="pl-k">=</span>
-  <span class="pl-smi">flightDispatcher</span>.<span class="pl-en">register</span>(<span class="pl-k">function</span>(<span class="pl-smi">payload</span>) {
-    <span class="pl-k">switch</span> (<span class="pl-smi">payload</span>.<span class="pl-smi">actionType</span>) {
-      <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">'</span>country-update<span class="pl-pds">'</span></span><span class="pl-k">:</span>
-      <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">'</span>city-update<span class="pl-pds">'</span></span><span class="pl-k">:</span>
-        <span class="pl-smi">flightDispatcher</span>.<span class="pl-en">waitFor</span>([<span class="pl-smi">CityStore</span>.<span class="pl-smi">dispatchToken</span>]); <span class="pl-c">// CityStore 에서 처리후에 다음 단계 실행.</span>
-        <span class="pl-smi">FlightPriceStore</span>.<span class="pl-smi">price</span> <span class="pl-k">=</span>
-          <span class="pl-en">getFlightPriceStore</span>(<span class="pl-smi">CountryStore</span>.<span class="pl-smi">country</span>, <span class="pl-smi">CityStore</span>.<span class="pl-smi">city</span>);
-        <span class="pl-k">break</span>;
-  }
-});</pre>
-
-</div>
 
 **흠, Flux랑 Redux와의 차이는 무엇일까요??**  
 **Redux vs Flux 장단점은 무엇일까요??**  
