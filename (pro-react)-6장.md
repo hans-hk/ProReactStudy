@@ -31,10 +31,18 @@ _개인적으로는 책에서의 그림 설명이 더 좋다고 생각한다.(�
 ## Dispatcher
 * Action 과 Store를 연결하는 중개자.
 * 여러 Store 사이의 순서를 제어.
-_책의 그림을 한번 다시 보자._
-
-[event emitter](http://haruair.com/blog/3396)
-EventEmitter는 Node.JS에 내장되어 있는 일종의 옵저버 패턴 구현이다. 
+  
+[dispatcher](https://facebook.github.io/flux/docs/dispatcher.html)  
+_책의 그림을 한번 다시 보자._  
+  
+[event emitter](https://github.com/facebook/emitter)  
+>## emit  
+  
+1.	방출하다  
+2.	내뿜다  
+3.	발산하다  
+미국[imít] 영국[imít]   
+  
 
 ## 실용성 없는 최소 플럭스 앱
 ### constants.js   
@@ -356,12 +364,5 @@ render(<App/>, document.getElementById("root"));
 **Redux vs Flux 장단점은 무엇일까요??**  
 **Redux나 Flux를 React가 아닌 다른 데에서도 효율적으로 잘 쓸수 있을까요??**   
 
-[event emitter](https://github.com/facebook/emitter)
-[dispatcher](https://facebook.github.io/flux/docs/dispatcher.html)
 
-emit
 
-바로저장단어장
-1.	방출하다2.	내뿜다3.	발산하다
-
-미국[imít] 영국[imít]
