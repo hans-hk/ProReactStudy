@@ -619,7 +619,7 @@ render(<AppContainer/>, document.getElementById("root"));
 
 ## Homework
 * 칸반 앱 6장 내용 작성해보기  
-* 6장 bank app, 항공권 app redux 버전과 비교해보기  
+* [6장 bank app, 항공권 app redux 버전과 비교해보기](https://github.com/pro-react/sample-code)  
 
 
 
