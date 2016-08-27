@@ -128,3 +128,10 @@ git hub 참조(코드)
 
 [event emitter](https://github.com/facebook/emitter)
 [dispatcher](https://facebook.github.io/flux/docs/dispatcher.html)
+
+emit
+
+바로저장단어장
+1.	방출하다2.	내뿜다3.	발산하다
+
+미국[imít] 영국[imít]
